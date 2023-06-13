@@ -16,22 +16,26 @@ import React from "react";
 
 const Homepage = () => {
   return (
-    <div className="min-w-screen min-h-screen bg-blue-100">
-      <Hero />
-      <FormPromo />
-      <Fasilitas />
-      <Lokasi />
-      <ProductsList />
-      <WhyChooseUs />
-      <Spesifikasi />
-      <Testimoni />
-      <PromoList />
-      <Gallery />
-      <IntroVideo />
-      <BlogList />
-      <FormPromo />
-      <PartnersList />
-      <Footer />
+    <div className="min-w-screen flex min-h-screen justify-center bg-primary/10">
+      <div className="max-w-7xl bg-white">
+        <Hero />
+        <FormPromo />
+        <Fasilitas />
+        <Lokasi />
+        <ProductsList />
+        <WhyChooseUs />
+        <Spesifikasi />
+        <Testimoni />
+        <PromoList />
+        <Gallery />
+        <IntroVideo />
+        <div className="py-[300px]">
+          <BlogList />
+        </div>
+        <FormPromo />
+        <PartnersList />
+        <Footer />
+      </div>
     </div>
   );
 };
