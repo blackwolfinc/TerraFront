@@ -16,8 +16,8 @@ import React from "react";
 
 const Homepage = () => {
   return (
-    <div className="min-w-screen flex min-h-screen justify-center bg-primary/10">
-      <div className="max-w-7xl bg-white">
+    <div className="min-w-screen min-h-screen">
+      <div className="mx-auto max-w-7xl bg-white">
         <Hero />
         <FormPromo />
         <Fasilitas />
