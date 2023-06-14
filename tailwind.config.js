@@ -9,7 +9,7 @@ module.exports = {
         accent: "#EE7B36",
       },
       fontFamily: {
-        amstelvar: ["AmstelvarAlpha", "sans-serif"],
+        amstelvar: ["AmstelvarAlpha", "serif"],
         baijamjuree: ["Bai Jamjuree", "sans-serif"],
         bevietnampro: ["Be Vietnam Pro", "sans-serif"],
         damion: ["Damion", "cursive"],

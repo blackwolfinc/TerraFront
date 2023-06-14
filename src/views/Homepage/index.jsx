@@ -1,6 +1,5 @@
 import BlogList from "components/BlogList";
 import Fasilitas from "components/Fasilitas";
-import Footer from "components/Footer";
 import FormPromo from "components/FormPromo";
 import Gallery from "components/Gallery";
 import Hero from "components/Hero";
@@ -12,37 +11,35 @@ import PromoList from "components/PromoList";
 import Spesifikasi from "components/Spesifikasi";
 import Testimoni from "components/Testimoni";
 import WhyChooseUs from "components/WhyChooseUs";
+import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
 
 const Homepage = () => {
   return (
-    <div className="min-w-screen min-h-screen">
-      <div className="mx-auto max-w-7xl bg-white">
-        <Hero />
-        <FormPromo />
-        <div className="mb-[300px]">
-          <Fasilitas />
-        </div>
-        <Lokasi />
-        <ProductsList />
-        <WhyChooseUs />
-        <div className="mb-[300px]">
-          <Spesifikasi />
-        </div>
-        <div className="mb-[270px]">
-          <Testimoni />
-        </div>
-        <PromoList />
-        <Gallery />
-        <IntroVideo />
-        <div className="mb-[300px]">
-          <BlogList />
-        </div>
-        <FormPromo />
-        <PartnersList />
-        <Footer />
+    <DefaultLayout>
+      <Hero />
+      <FormPromo />
+      <div className="mb-[300px]">
+        <Fasilitas />
       </div>
-    </div>
+      <Lokasi />
+      <ProductsList />
+      <WhyChooseUs />
+      <div className="mb-[300px]">
+        <Spesifikasi />
+      </div>
+      <div className="mb-[270px]">
+        <Testimoni />
+      </div>
+      <PromoList />
+      <Gallery />
+      <IntroVideo />
+      <div className="mb-[300px]">
+        <BlogList />
+      </div>
+      <FormPromo />
+      <PartnersList />
+    </DefaultLayout>
   );
 };
 
