@@ -20,18 +20,24 @@ const Homepage = () => {
       <div className="mx-auto max-w-7xl bg-white">
         <Hero />
         <FormPromo />
-        <Fasilitas />
+        <div className="mb-[300px]">
+          <Fasilitas />
+        </div>
         <Lokasi />
         <ProductsList />
         <WhyChooseUs />
-        <Spesifikasi />
-        <Testimoni />
+        <div className="mb-[300px]">
+          <Spesifikasi />
+        </div>
+        <div className="mb-[270px]">
+          <Testimoni />
+        </div>
         <PromoList />
         <Gallery />
         <IntroVideo />
-        {/* <div className="py-[300px]">
+        <div className="mb-[300px]">
           <BlogList />
-        </div> */}
+        </div>
         <FormPromo />
         <PartnersList />
         <Footer />
