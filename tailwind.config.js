@@ -17,6 +17,9 @@ module.exports = {
         dmserif: ["DM Serif Text", "serif"],
         brygada: ["Brygada 1918", "sans-serif"],
       },
+      boxShadow: {
+        custom1: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+      },
     },
   },
   plugins: [],
