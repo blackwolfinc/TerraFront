@@ -29,9 +29,9 @@ const Homepage = () => {
         <PromoList />
         <Gallery />
         <IntroVideo />
-        <div className="py-[300px]">
+        {/* <div className="py-[300px]">
           <BlogList />
-        </div>
+        </div> */}
         <FormPromo />
         <PartnersList />
         <Footer />
