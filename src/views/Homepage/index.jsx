@@ -18,7 +18,9 @@ const Homepage = () => {
   return (
     <DefaultLayout>
       <Hero />
-      <FormPromo />
+      <div className="mb-[300px]">
+        <FormPromo />
+      </div>
       <div className="mb-[300px]">
         <Fasilitas />
       </div>
@@ -37,7 +39,9 @@ const Homepage = () => {
       <div className="mb-[300px]">
         <BlogList />
       </div>
-      <FormPromo />
+      <div className="mb-[300px]">
+        <FormPromo />
+      </div>
       <PartnersList />
     </DefaultLayout>
   );

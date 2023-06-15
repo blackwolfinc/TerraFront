@@ -7,6 +7,8 @@ export const API_ENDPOINTS = {
   UPLOAD_IMAGES_PRODUCT: "/product/image/slide/upload/",
   DELETE_IMAGES_PRODUCT: "/product/images/array?images=",
   DELETE_PRODUCT: "/product/",
+  // CUSTOMER
+  CREATE_CUSTOMER: "/customer/",
   // USER
   GET_ALL_USERS: "/user/",
   GET_USER: "/user/",
