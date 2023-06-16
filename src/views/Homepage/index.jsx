@@ -17,7 +17,9 @@ import React from "react";
 const Homepage = () => {
   return (
     <DefaultLayout>
-      <Hero />
+      <div className="mb-[100px]">
+        <Hero />
+      </div>
       <div className="mb-[300px]">
         <FormPromo />
       </div>
