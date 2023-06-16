@@ -26,7 +26,9 @@ const Homepage = () => {
       </div>
       <Lokasi />
       <ProductsList />
-      <WhyChooseUs />
+      <div className="mb-[300px]">
+        <WhyChooseUs />
+      </div>
       <div className="mb-[300px]">
         <Spesifikasi />
       </div>
