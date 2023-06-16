@@ -33,7 +33,9 @@ const Homepage = () => {
       <div className="mb-[270px]">
         <Testimoni />
       </div>
-      <PromoList />
+      <div className="mb-[300px]">
+        <PromoList />
+      </div>
       <Gallery />
       <IntroVideo />
       <div className="mb-[300px]">
