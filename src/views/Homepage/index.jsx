@@ -17,14 +17,20 @@ import React from "react";
 const Homepage = () => {
   return (
     <DefaultLayout>
-      <Hero />
-      <FormPromo />
+      <div className="mb-[100px]">
+        <Hero />
+      </div>
+      <div className="mb-[300px]">
+        <FormPromo />
+      </div>
       <div className="mb-[300px]">
         <Fasilitas />
       </div>
       <Lokasi />
       <ProductsList />
-      <WhyChooseUs />
+      <div className="mb-[300px]">
+        <WhyChooseUs />
+      </div>
       <div className="mb-[300px]">
         <Spesifikasi />
       </div>
@@ -37,7 +43,9 @@ const Homepage = () => {
       <div className="mb-[300px]">
         <BlogList />
       </div>
-      <FormPromo />
+      <div className="mb-[300px]">
+        <FormPromo />
+      </div>
       <PartnersList />
     </DefaultLayout>
   );
