@@ -20,12 +20,12 @@ const Homepage = () => {
       <div className="mb-[100px]">
         <Hero />
       </div>
-      <div className="mb-[300px]">
+      {/* <div className="mb-[300px]">
         <FormPromo />
       </div>
       <div className="mb-[300px]">
         <Fasilitas />
-      </div>
+      </div> */}
       <Lokasi />
       <ProductsList />
       <div className="mb-[300px]">
