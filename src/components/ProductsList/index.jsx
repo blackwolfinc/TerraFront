@@ -15,7 +15,7 @@ const ProductsList = () => {
   const navigationNextRef = React.useRef(null)
 
   React.useEffect(() => {
-    swiper.current = new Swiper(".swiper", {
+    swiper.current = new Swiper("#swiper_product_list", {
       modules: [Navigation, Pagination, Scrollbar],
       slidesPerView: 3,
       spaceBetween: 20,
@@ -45,7 +45,7 @@ const ProductsList = () => {
       },
     });
 
-    return () => swiper.current.destroy();
+    // return () => swiper.current.destroy();
   });
   
   return (
@@ -57,7 +57,7 @@ const ProductsList = () => {
               OUR PRODUCT
             </div>
             <div className="flex flex-row">
-              <div class="swiper">
+              <div id="swiper_product_list" class="swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide bg-primary rounded-lg p-1">
                     <img width={'100%'} src={ourProduct} alt='product' />

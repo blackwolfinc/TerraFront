@@ -17,16 +17,20 @@ import React from "react";
 const Homepage = () => {
   return (
     <DefaultLayout>
-      <Hero />
-      <div className="mb-[300px]">
+      <div className="mb-[100px]">
+        <Hero />
+      </div>
+      {/* <div className="mb-[300px]">
         <FormPromo />
       </div>
       <div className="mb-[300px]">
         <Fasilitas />
-      </div>
+      </div> */}
       <Lokasi />
       <ProductsList />
-      <WhyChooseUs />
+      <div className="mb-[300px]">
+        <WhyChooseUs />
+      </div>
       <div className="mb-[300px]">
         <Spesifikasi />
       </div>

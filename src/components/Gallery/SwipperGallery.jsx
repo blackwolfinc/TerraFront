@@ -9,7 +9,7 @@ const SwipperGallery = ({value}) => {
     const navigationNextRef = React.useRef(null);
 
     React.useEffect(() => {
-        swiper.current = new Swiper(".swiper", {
+        swiper.current = new Swiper(`.swiper_gallery${value?.id}`, {
         modules: [Navigation, Pagination, Scrollbar],
         slidesPerView: 3,
         spaceBetween: 20,
@@ -48,30 +48,31 @@ const SwipperGallery = ({value}) => {
             <div className="text-white font-bold uppercase text-xl py-4">
                 {value?.title ?? '-'}
             </div>
-            <div className='flex flex-row justify-center items-center'>
-                <div class="swiper w-full">
-                    <div class="swiper-wrapper">
-                          {value?.galleryImages?.map(image => {
-                            console.log(`${process.env.REACT_APP_API_IMAGE}/${image.image_path}`)
-                            return (
-                                <div key={image.id} class="swiper-slide bg-primary rounded-lg p-1 w-full">
-                                    <div className="w-full h-40">
-                                        <img
-                                            className="w-full object-cover"
-                                            src={`${process.env.REACT_APP_API_IMAGE}/${image.image_path}`}
-                                            alt={image.image_path}     
-                                        />
+            <div className='w-full flex flex-row justify-between items-center'>
+                <div className='w-[97%]'>
+                      <div class={`swiper w-full swiper_gallery${value?.id}`}>
+                        <div class="swiper-wrapper">
+                            {value?.galleryImages?.map(image => {
+                                return (
+                                    <div key={image.id} class="swiper-slide bg-primary rounded-lg p-1 w-full">
+                                        <div className="w-full h-40">
+                                            <img
+                                                className="w-full object-cover"
+                                                src={`${process.env.REACT_APP_API_IMAGE}/${image.image_path}`}
+                                                alt={image.image_path}     
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        })}
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
-              {value?.galleryImages && value?.galleryImages?.length > 2 && (
-                <button ref={navigationNextRef} className='text-gray-400 opacity-90'>
-                    <MdOutlineArrowForwardIos className="w-10 text-4xl" />
-                </button>
-              )}
+                <div className='w-[3%] text-slate-300' >
+                    <button ref={navigationNextRef} >
+                        <MdOutlineArrowForwardIos className="text-4xl"  />
+                    </button>
+                </div>
            </div>
         </div>
     </>
