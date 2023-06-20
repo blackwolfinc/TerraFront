@@ -20,34 +20,43 @@ const Homepage = () => {
       <div className="mb-[100px]">
         <Hero />
       </div>
-      <div className="mb-[300px]">
+      <div className="mb-40">
         <FormPromo />
       </div>
-      <div className="mb-[300px]">
+      <div className="mb-40">
         <Fasilitas />
       </div>
-      <Lokasi />
-      <ProductsList />
-      <div className="mb-[300px]">
+      <div className="mb-40">
+        <Lokasi />
+      </div>
+      <div className="mb-40">
+        <ProductsList />
+      </div>
+      <div className="mb-40">
         <WhyChooseUs />
       </div>
-      <div className="mb-[300px]">
+      <div className="mb-40">
         <Spesifikasi />
       </div>
-      <div className="mb-[270px]">
+      <div className="mb-40">
         <Testimoni />
       </div>
-      <div className="mb-[300px]">
+      <div className="mb-40">
         <PromoList />
       </div>
-      <Gallery />
-      <IntroVideo />
-      <div className="mb-[300px]">
+      <div className="mb-40">
+        <Gallery />
+      </div>
+      <div className="mb-40">
+        <IntroVideo />
+      </div>
+      <div className="mb-40">
         <BlogList />
       </div>
-      <div className="mb-[300px]">
+      <div className="mb-40">
         <FormPromo />
       </div>
+      <div className="mx-80 my-80 h-40 bg-[url('assets/img/logo-transparent.png')] bg-contain bg-center bg-no-repeat opacity-50"></div>
       <PartnersList />
     </DefaultLayout>
   );
