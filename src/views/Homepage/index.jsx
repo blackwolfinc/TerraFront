@@ -44,7 +44,7 @@ const Homepage = () => {
       <div className="mb-40">
         <PromoList />
       </div>
-      <div className="mb-40">
+      <div className="mb-10">
         <Gallery />
       </div>
       <div className="mb-40">
