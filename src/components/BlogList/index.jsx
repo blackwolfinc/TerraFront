@@ -3,7 +3,7 @@ import BlogItem from "./BlogItem";
 import { useBlogDataQuery } from "services/blogs/get-blogs";
 
 const BlogList = () => {
-  const { data: blogData, isLoading } = useBlogDataQuery({
+  const { data: blogData } = useBlogDataQuery({
     params: {
       page: 1,
       paginate: 6,

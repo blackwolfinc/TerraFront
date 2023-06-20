@@ -6,7 +6,7 @@ const DefaultLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-7xl bg-white">{children}</main>
+      <main className="mx-auto max-w-screen-xl bg-white">{children}</main>
       <Footer />
     </>
   );
