@@ -84,7 +84,7 @@ const SwipperGallery = ({value}) => {
                                     <div key={image.id} class="swiper-slide bg-primary rounded-lg p-1 w-full">
                                         <div className="w-full h-[200px]">
                                             <img
-                                                className="w-full object-cover"
+                                                className="w-full h-full object-center"
                                                 src={`${process.env.REACT_APP_API_IMAGE}/${image.image_path}`}
                                                 alt={image.image_path}     
                                             />
