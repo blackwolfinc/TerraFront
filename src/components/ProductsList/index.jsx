@@ -60,22 +60,22 @@ const ProductsList = () => {
               <div id="swiper_product_list" class="swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img width={'100%'} src={ourProduct} alt='product' />
+                    <img className="w-full h-full object-center" src={ourProduct} alt='product' />
                   </div>
                   <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img width={'100%'} src={ourProduct2} alt='product' />
+                    <img className="w-full h-full object-center" src={ourProduct2} alt='product' />
                   </div>
                   <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img width={'100%'} src={ourProduct3} alt='product' />
+                    <img className="w-full h-full object-center" src={ourProduct3} alt='product' />
                   </div>
                   <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img width={'100%'} src={ourProduct} alt='product' />
+                    <img className="w-full h-full object-center" src={ourProduct} alt='product' />
                   </div>
                   <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img width={'100%'} src={ourProduct2} alt='product' />
+                    <img className="w-full h-full object-center" src={ourProduct2} alt='product' />
                   </div>
                   <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img width={'100%'} src={ourProduct3} alt='product' />
+                    <img className="w-full h-full object-center" src={ourProduct3} alt='product' />
                   </div>
                 </div>
               </div>
