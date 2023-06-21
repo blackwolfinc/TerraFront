@@ -13,8 +13,8 @@ const BlogList = () => {
   const blogsDataRow = blogData?.data?.datas || [];
 
   return (
-    <div className="mx-10">
-      <h3 className="mb-10 font-bevietnampro text-2xl font-semibold text-black/70">
+    <div className="mx-10 max-md:mx-2">
+      <h3 className="mb-10 font-bevietnampro text-2xl font-semibold text-black/70 max-md:text-center">
         New Article
       </h3>
       <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-sm:grid-cols-1">
