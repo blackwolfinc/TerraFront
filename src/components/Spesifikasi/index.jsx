@@ -70,9 +70,9 @@ const Spesifikasi = () => {
           </div>
         </div>
         <div>
-          <div className="grid grid-cols-4 gap-5">
+          <div className="grid grid-cols-4 gap-5 max-md:grid-cols-2 max-md:px-10 max-sm:px-4">
             {SpesifikasiImageList.map((item, index) => (
-              <div className="overflow-hidden rounded-xl">
+              <div className="cursor-pointer overflow-hidden rounded-xl">
                 <img
                   className="aspect-video w-full object-cover"
                   src={item}
