@@ -32,7 +32,7 @@ const Homepage = () => {
       <div className="mb-40">
         <ProductsList />
       </div>
-      <div className="mb-40">
+      <div id="why-choose-us" className="mb-40">
         <WhyChooseUs />
       </div>
       <div className="mb-40">
