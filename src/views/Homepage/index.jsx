@@ -17,13 +17,13 @@ import React from "react";
 const Homepage = () => {
   return (
     <DefaultLayout>
-      {/* <div className="mb-[100px]">
+      <div className="mb-[100px]">
         <Hero />
-      </div> */}
+      </div>
       <div id="form-promo" className="mb-40">
         <FormPromo />
       </div>
-      {/* <div className="mb-40">
+      <div className="mb-40">
         <Fasilitas />
       </div>
       <div className="mb-40">
@@ -43,7 +43,7 @@ const Homepage = () => {
       </div>
       <div className="mb-40">
         <PromoList />
-      </div> 
+      </div>
       <div className="mb-10">
         <Gallery />
       </div>
@@ -57,7 +57,7 @@ const Homepage = () => {
         <FormPromo />
       </div>
       <div className="mx-80 my-80 h-40 bg-[url('assets/img/logo-transparent.png')] bg-contain bg-center bg-no-repeat opacity-50"></div>
-      <PartnersList /> */}
+      <PartnersList />
     </DefaultLayout>
   );
 };
