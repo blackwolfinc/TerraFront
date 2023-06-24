@@ -41,7 +41,7 @@ const Homepage = () => {
       <div className="mb-40">
         <Testimoni />
       </div>
-      <div className="mb-40">
+      <div id="promo-list " className="mb-40">
         <PromoList />
       </div>
       <div className="mb-10">

@@ -5,14 +5,14 @@ const FeaturedPromo = (props) => {
     props;
 
   return (
-    <div className="flex w-full gap-16">
-      <div className="relative">
+    <div className="flex flex-col md:flex-row md:gap-x-8 lg:gap-x-16">
+      <div className="relative mb-8 md:mb-0 md:w-1/2 lg:w-7/12">
         <img
           src={SuperDeal}
           alt="super-deal"
-          className="absolute -left-12 -top-16 h-[40%] w-[40%]"
+          className="absolute -left-[10%] -top-[14%] h-[40%] w-[40%]"
         />
-        <div className="flex h-[400px] items-center justify-center overflow-hidden rounded-3xl bg-gray-100">
+        <div className="flex h-[12rem] w-full items-center justify-center overflow-hidden rounded-3xl bg-gray-100 lg:h-[24rem]">
           <img
             src={`${process.env.REACT_APP_API_IMAGE}/${image}` || NoImage}
             alt="Promo"
@@ -20,22 +20,22 @@ const FeaturedPromo = (props) => {
           />
         </div>
       </div>
-      <div className="flex h-auto w-5/12 flex-col">
-        <h3 className="mb-8 font-bevietnampro text-3xl font-bold text-black">
+      <div className="flex flex-col md:w-1/2 lg:w-5/12">
+        <h3 className="mb-4 font-bevietnampro text-xl font-bold text-black lg:mb-8 lg:text-3xl">
           {title}
         </h3>
-        <p className="flex-grow font-brygada text-xl text-black">
+        <p className="mb-4 flex-grow font-brygada text-sm text-black md:shrink lg:text-lg">
           {description}
         </p>
         <button
-          className="focus:shadow-outline relative w-full rounded bg-primary px-4 py-4 font-bevietnampro text-2xl font-medium text-white hover:bg-primary focus:outline-none"
+          className="relative w-full rounded bg-primary px-2 py-2 font-bevietnampro text-lg font-normal text-white lg:py-4 lg:text-xl"
           type="submit"
-          onClick={() => window.location.href=`/promo/${id}`}
+          onClick={() => (window.location.href = `/promo/${id}`)}
         >
           <img
             src={BestOffer}
             alt="best-offer"
-            className="absolute -top-8 right-5 h-[150%] w-[30%]"
+            className="absolute -top-[36%] right-[1%] h-full w-[30%] lg:-top-[44%] lg:h-[130%]"
           />
           More Detail
         </button>

@@ -4,21 +4,28 @@ const PromoItem = (props) => {
   const { id, image, title, description, NoImage } = props;
 
   return (
-    <a href={"/promo/" + id} className="flex w-full gap-16 no-underline ">
-      <div className="flex h-[300px] w-5/12 items-center justify-center overflow-hidden rounded-3xl border-[16px]">
-        <img
-          src={`${process.env.REACT_APP_API_IMAGE}/${image}` || NoImage}
-          alt="Promo"
-          className="min-h-full min-w-full object-cover"
-        />
+    <a
+      href={"/promo/" + id}
+      className="flex flex-col no-underline md:flex-row md:gap-x-8 lg:gap-x-16"
+    >
+      <div className="mb-4 md:w-1/2">
+        <div className="flex h-[12rem] items-center justify-center overflow-hidden rounded-2xl border-[16px] lg:h-[18rem]">
+          <img
+            src={`${process.env.REACT_APP_API_IMAGE}/${image}` || NoImage}
+            alt="Promo"
+            className="min-h-full min-w-full object-cover"
+          />
+        </div>
       </div>
-      <div className="flex h-auto w-7/12 flex-col">
-        <h3 className="mb-8 font-bevietnampro text-3xl font-bold text-black">
-          {title}
-        </h3>
-        <p className="flex-grow font-brygada text-xl text-black">
-          {description}
-        </p>
+      <div className="md:w-1/2">
+        <div className="flex flex-col">
+          <h3 className="mb-2 font-bevietnampro text-xl font-bold text-black lg:mb-6 lg:text-3xl">
+            {title}
+          </h3>
+          <p className="font-brygada text-sm text-black lg:text-lg">
+            {description}
+          </p>
+        </div>
       </div>
     </a>
   );
