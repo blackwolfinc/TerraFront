@@ -13,9 +13,11 @@ const BlogItem = ({ image, title, date, creator, description, category }) => {
         </div>
       )}
       <div className="pointer-events-none absolute flex h-full w-full items-center pl-4">
-        <div className="rounded-md bg-red-600 px-2 py-1 font-bold text-white">
-          <span>{moment(date).format("DD/MM/YYYY")}</span>
-        </div>
+        {date && (
+          <div className="rounded-md bg-red-600 px-2 py-1 font-bold text-white">
+            <span>{moment(date).format("DD/MM/YYYY")}</span>
+          </div>
+        )}
       </div>
       <div className="flex h-full w-full flex-col overflow-hidden rounded-md bg-white">
         <div className="flex h-1/2 items-center justify-center overflow-hidden bg-gray-100">

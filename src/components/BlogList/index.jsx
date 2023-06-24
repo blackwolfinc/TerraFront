@@ -7,6 +7,7 @@ const BlogList = () => {
     params: {
       page: 1,
       paginate: 6,
+      preview: true,
     },
   });
 
@@ -22,7 +23,7 @@ const BlogList = () => {
           <BlogItem
             key={blog.id}
             title={blog.title}
-            date={blog.created_at}
+            date={blog.createdAt}
             creator={blog.createdBy}
             description={blog.body}
             category={blog.category}
