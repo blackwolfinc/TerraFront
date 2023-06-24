@@ -9,20 +9,22 @@ const Lokasi = () => {
   };
 
   return (
-    <div className="py-8">
+    <div className="py-8 md:py-6 sm:py-0">
       <div className="w-full py-12 text-center text-4xl font-bold text-primary">
         Tempat Strategis
       </div>
-      <div className="relative flex w-full justify-center">
-        <img
-          className="transform transition duration-500 hover:scale-105"
-          width={"90%"}
-          src={locationTerra}
-          alt="location"
-          onClick={() => redirectMap()}
-        />
-        <div className="absolute bottom-[10%] right-0 w-96 bg-slate-300 bg-opacity-70 p-8">
-          <div className="md: text-xl font-bold opacity-100">
+      <div className="w-full lg:relative md:flex flex-col justify-center items-center">
+          <img
+            className="transform transition duration-500 lg:hover:scale-105 lg:w-[90%] lg:rounded-lg"
+            // width={"90%"}
+            src={locationTerra}
+            alt="location"
+            onClick={() => redirectMap()}
+          />
+          <div className="absolute lg:-top-[5%] -top-[8%] left-[10%] z-1 aspect-[1/3] lg:w-6 md:w-0 rounded-lg bg-[#3B5858] opacity-75 shadow-custom1 "></div>
+          <div className="absolute lg:-top-[5%] -top-[8%] left-[15%] z-1 aspect-[1/3] lg:w-6 md:w-0 rounded-lg bg-[#3B5858] opacity-75 shadow-custom1 "></div>
+        <div className="lg:absolute bottom-[10%] right-[2%] lg:w-96 w-full lg:bg-slate-300 bg-opacity-70 p-8 lg:space-y-0 space-y-5 text-justify text-primary">
+          <div className="text-xl font-bold opacity-100">
             Terrakota Residence
           </div>
           <div className="flex flex-col gap-5 text-xs opacity-100">

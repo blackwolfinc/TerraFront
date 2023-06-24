@@ -1,6 +1,6 @@
 import React from "react";
 import { useGalleryDataQuery } from "../../services/gallery/get-gallery";
-import SwipperGallery from "./SwipperGallery";
+import SwipperGallery from "./SwiperGallery";
 
 const Gallery = () => {
   //Data
@@ -29,11 +29,6 @@ const Gallery = () => {
           Galery
         </div>
         <div className="flex flex-col justify-start gap-10 bg-white py-8">
-          {/* {galleryData && galleryData?.length > 0 && galleryData?.slice(0, 3)?.map((value) => { */}
-          {/* return (
-              <SwipperGallery value={value} key={value.id}/>
-            )
-          })} */}
           <SwipperGallery value={galleryData} key={galleryData.id} />
         </div>
       </div>

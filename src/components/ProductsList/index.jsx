@@ -1,101 +1,63 @@
 import React from "react";
-import ourProduct from '../../assets/img/our-product.png'
-import ourProduct2 from '../../assets/img/fasilitas.png'
-import ourProduct3 from '../../assets/img/location.png'
-import Swiper, { Navigation, Pagination, Scrollbar } from "swiper";
 import { register } from 'swiper/element/bundle';
 import "swiper/swiper.css";
-import { MdOutlineArrowForwardIos } from 'react-icons/md'
+import SwiperProduct from "./SwiperProduct";
+import { useProductDataQuery } from "../../services/product/get-product";
 
 register();
 
 const ProductsList = () => {
-  const swiper = React.useRef(null);
-  const navigationPrevRef = React.useRef(null)
-  const navigationNextRef = React.useRef(null)
+  const [productData, setProductData] = React.useState([]);
+
+  const { data: dataProduct, isLoading:isLoadingData } = useProductDataQuery({
+    params: "",
+    settings: "",
+  });
 
   React.useEffect(() => {
-    swiper.current = new Swiper("#swiper_product_list", {
-      modules: [Navigation, Pagination, Scrollbar],
-      slidesPerView: 3,
-      spaceBetween: 20,
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   type: 'bullets',
-      // },
-      navigation: {
-        nextEl: navigationNextRef.current,
-        prevEl: navigationPrevRef.current,
-      },
-      loop: true,
-      // autoplay: {
-      //   delay: 2500,
-      //   disableOnInteraction: false,
-      // },
-      breakpoints: {
-        425: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
+    if (!dataProduct) {
+      return;
+    }
 
-    // return () => swiper.current.destroy();
-  });
-  
+    setProductData(dataProduct?.data?.datas[0]);
+    // return () => {
+    //   cleanup
+    // };
+  }, [dataProduct]);
+
   return (
     <>
-      <div className="relative">
-        <div className="h-64 p-10 flex flex-col justify-start items-end">
-          <div className="w-[50%]">
-            <div className="font-bold text-2xl text-primary py-4">
-              OUR PRODUCT
-            </div>
-            <div className="flex flex-row">
-              <div id="swiper_product_list" class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img className="w-full h-full object-center" src={ourProduct} alt='product' />
-                  </div>
-                  <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img className="w-full h-full object-center" src={ourProduct2} alt='product' />
-                  </div>
-                  <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img className="w-full h-full object-center" src={ourProduct3} alt='product' />
-                  </div>
-                  <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img className="w-full h-full object-center" src={ourProduct} alt='product' />
-                  </div>
-                  <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img className="w-full h-full object-center" src={ourProduct2} alt='product' />
-                  </div>
-                  <div class="swiper-slide bg-primary rounded-lg p-1">
-                    <img className="w-full h-full object-center" src={ourProduct3} alt='product' />
-                  </div>
-                </div>
-              </div>
-              <button ref={navigationNextRef}>
-                <MdOutlineArrowForwardIos className="w-8 text-2xl" />
-              </button>
+      <div className={`relative ${isLoadingData ? 'animate-pulse' : ''}`}>
+        <div className="h-full p-10 flex flex-col justify-center items-end lg:h-64">
+          <SwiperProduct 
+            id={"desktop"}
+            value={productData}
+            classContainer="w-[50%] hidden lg:block" 
+          />
+        </div>
+        <div className="h-full p-10 flex justify-end items-start bg-primary text-white text lg:h-64">
+          <div className="w-full mt-[30%] lg:w-[50%] lg:mt-0 sm:mt-[20%]">
+            {/* mobile view */}
+            <SwiperProduct 
+              name={'mobile'}
+              value={productData}
+              classContainer="w-full block my-10 lg:hidden" 
+            />
+            {/**/}
+            <div className="text-sm sm:text-base">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type
             </div>
           </div>
         </div>
-        <div className="z-1 h-64 p-10 flex justify-end items-center bg-primary text-white">
-          <span className="w-[50%]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type
-          </span>
+        <div className="absolute bottom-[60%] lg:bottom-[18%] lg:left-[2%] lg:w-[45%] md:bottom-[55%] md:left-[10%] md:w-full max-w-[600px] shadow-2xl">
+          <img
+            className="h-full w-full object-center"
+            src={`${process.env.REACT_APP_API_IMAGE}/${productData?.image_denah_path}`}
+            alt={productData?.image_denah_path}
+           />
         </div>
-        <div className="absolute bottom-[15%] left-10 w-[40%] shadow-2xl">
-          <img src={ourProduct} alt='product' />
-        </div>
-        
       </div>
     </>
   );

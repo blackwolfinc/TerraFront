@@ -43,7 +43,7 @@ const Homepage = () => {
       </div>
       <div className="mb-40">
         <PromoList />
-      </div>
+      </div> 
       <div className="mb-10">
         <Gallery />
       </div>
