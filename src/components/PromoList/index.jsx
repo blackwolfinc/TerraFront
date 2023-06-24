@@ -14,14 +14,12 @@ const PromoList = () => {
     },
   });
 
-  console.log(promoData);
-
   return (
-    <div className="px-16 py-20 ">
-      <h3 className="mb-28 font-arimo text-5xl font-bold text-[#092138]">
+    <div className="px-6 py-4 lg:px-24">
+      <h1 className="mb-12 text-center font-arimo text-2xl font-extrabold text-[#092138] md:mb-16 md:text-4xl lg:mb-24 lg:text-5xl">
         Special Promotion
-      </h3>
-      <div className="mb-28">
+      </h1>
+      <div className="mb-14 md:px-6">
         {promoData?.data.datas?.map(
           (promo) =>
             promo.category === "SPECIAL" && (
@@ -38,7 +36,7 @@ const PromoList = () => {
             )
         )}
       </div>
-      <div className="grid gap-12">
+      <div className="grid gap-y-16 md:gap-y-6 md:px-6">
         {promoData?.data.datas?.map(
           (promo) =>
             promo.category === "STANDARD" && (
