@@ -6,19 +6,17 @@ import { removeHTMLTags } from "utils/utils";
 
 const BlogItem = ({ image, title, date, creator, description, category }) => {
   return (
-    <div className="relative h-[550px] w-full cursor-pointer shadow-md transition-all hover:-translate-y-1">
+    <div className="relative h-[550px] w-full cursor-pointer shadow-md transition-all hover:-translate-y-1 max-md:h-[440px]">
       {category && (
         <div className="absolute left-4 top-4 w-fit rounded-md bg-accent px-2 py-1 text-sm font-bold text-white">
           <span>{category}</span>
         </div>
       )}
-      {date && (
-        <div className="pointer-events-none absolute flex h-full w-full items-center pl-4">
-          <div className="rounded-md bg-red-600 px-2 py-1 font-bold text-white">
-            <span>{moment(date).format("DD/MM/YYYY")}</span>
-          </div>
+      <div className="pointer-events-none absolute flex h-full w-full items-center pl-4">
+        <div className="rounded-md bg-red-600 px-2 py-1 font-bold text-white">
+          <span>{moment(date).format("DD/MM/YYYY")}</span>
         </div>
-      )}
+      </div>
       <div className="flex h-full w-full flex-col overflow-hidden rounded-md bg-white">
         <div className="flex h-1/2 items-center justify-center overflow-hidden bg-gray-100">
           <img
@@ -43,7 +41,7 @@ const BlogItem = ({ image, title, date, creator, description, category }) => {
               <h6 className="mb-2 line-clamp-2 text-ellipsis text-lg font-bold">
                 {title || "Blogs Title"}
               </h6>
-              <p className="line-clamp-4 text-justify">
+              <p className="line-clamp-4 text-justify max-md:line-clamp-2">
                 {removeHTMLTags(description)}
               </p>
             </div>
