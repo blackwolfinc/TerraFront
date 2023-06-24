@@ -11,23 +11,23 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-20 py-6 max-lg:px-2">
         <img src={TerraLogo} alt="Terra Logo" className="w-40 max-sm:w-28" />
         <button
-          className="hidden max-md:block"
+          className="hidden max-lg:block"
           onClick={() => setShowMenu(true)}
         >
           <MdMenu size={36} />
         </button>
         <div
-          className={`max-md:fixed max-md:left-0 max-md:top-0 max-md:z-[999] max-md:h-screen max-md:w-screen max-md:bg-white/80 ${
-            showMenu ? "" : "max-md:translate-x-full"
+          className={`max-lg:fixed max-lg:left-0 max-lg:top-0 max-lg:z-[999] max-lg:h-screen max-lg:w-screen max-lg:bg-white/80 ${
+            showMenu ? "" : "max-lg:translate-x-full"
           } transition-all duration-300`}
         >
           <button
-            className="absolute right-10 top-10 hidden max-md:z-[1000] max-md:block"
+            className="absolute right-10 top-10 hidden max-lg:z-[1000] max-lg:block"
             onClick={() => setShowMenu(false)}
           >
             <MdClose size={36} />
           </button>
-          <div className="flex gap-10 font-serif font-light text-primary max-md:h-full max-md:w-full max-md:flex-col max-md:items-center max-md:justify-center max-md:font-bold max-md:backdrop-blur-sm">
+          <div className="flex gap-10 font-serif font-light text-primary max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:font-bold max-lg:backdrop-blur-sm">
             <a href="/#">Home</a>
             <a href="/#">Products</a>
             <a href="/#">Gallery</a>

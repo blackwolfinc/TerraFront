@@ -43,7 +43,7 @@ const Homepage = () => {
       </div>
       <div className="mb-40">
         <PromoList />
-      </div> 
+      </div>
       <div className="mb-10">
         <Gallery />
       </div>
@@ -56,7 +56,7 @@ const Homepage = () => {
       <div className="mb-40">
         <FormPromo />
       </div>
-      <div className="mx-80 my-80 h-40 bg-[url('assets/img/logo-transparent.png')] bg-contain bg-center bg-no-repeat opacity-50"></div>
+      <div className="mx-80 my-80 h-40 bg-[url('assets/img/logo-transparent.png')] bg-contain bg-center bg-no-repeat opacity-50 max-lg:m-40 max-md:m-20"></div>
       <PartnersList />
     </DefaultLayout>
   );
