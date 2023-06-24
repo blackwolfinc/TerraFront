@@ -17,7 +17,7 @@ import React from "react";
 const Homepage = () => {
   return (
     <DefaultLayout>
-      <div className="mb-[100px]">
+      <div id="hero">
         <Hero />
       </div>
       <div className="mb-40">
