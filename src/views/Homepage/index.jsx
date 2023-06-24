@@ -20,7 +20,7 @@ const Homepage = () => {
       <div className="mb-[100px]">
         <Hero />
       </div>
-      <div className="mb-40">
+      <div id="form-promo" className="mb-40">
         <FormPromo />
       </div>
       <div className="mb-40">
