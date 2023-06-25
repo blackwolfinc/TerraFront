@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FasilitasImg from "assets/img/fasilitas.png";
 
-const DummyFasilitas = [
-  "1,7 Km dari RSU Nganjuk",
-  "2 Km dari Terminal Nganjuk",
-  "5 Menit Dari Alun - Alun",
-  "2 Km dari Pintu Tol",
-  "2 Km dari Pasar Besar",
-  "2 Km dari Stasiun Nganjuk",
-  "0.8 Km dari Pusat Perbelanjaan",
-  "Dekat Dengan Sekolah",
-];
+const Fasilitas = ({ list }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [data, setData] = React.useState([]);
 
-const Fasilitas = () => {
+  useEffect(() => {
+    if (!list) return;
+
+    setData(list);
+  }, [list]);
+
   return (
     <div className="w-full">
       <div>
@@ -62,7 +60,7 @@ const Fasilitas = () => {
           </p>
         </div>
         <div className="grid grid-cols-2 gap-10 max-lg:grid-cols-1">
-          {DummyFasilitas.map((item, index) => (
+          {data.map((item, index) => (
             <FasilitasItem key={index} text={item} />
           ))}
         </div>

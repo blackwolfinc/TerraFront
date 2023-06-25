@@ -10,7 +10,7 @@ const fetchProductData = async ({ queryKey }) => {
 
 const useProductDataQuery = ({ id = null, params = null, settings = null }) => {
   return useQuery(
-    [`${API_ENDPOINTS.GET_ALL_PRODUCTS}`, params],
+    [`${API_ENDPOINTS.GET_ALL_PRODUCTS}${id ? `${id}` : ""}`, params],
     fetchProductData,
     settings
   );
