@@ -14,7 +14,9 @@ const FeaturedPromo = (props) => {
         />
         <div className="flex h-[12rem] w-full items-center justify-center overflow-hidden rounded-3xl bg-gray-100 lg:h-[24rem]">
           <img
-            src={`${process.env.REACT_APP_API_IMAGE}/${image}` || NoImage}
+            src={
+              image ? `${process.env.REACT_APP_API_IMAGE}/${image}` : NoImage
+            }
             alt="Promo"
             className="min-h-full min-w-full object-cover"
           />
