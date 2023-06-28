@@ -35,7 +35,6 @@ const Navbar = () => {
             <MdClose size={36} />
           </button>
           <div className="flex gap-10 font-serif font-light text-primary max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:font-bold max-lg:backdrop-blur-sm">
-<<<<<<< Updated upstream
             <span className={"cursor-pointer"} onClick={() => navigate("/")}>
               Home
             </span>
@@ -63,13 +62,6 @@ const Navbar = () => {
             >
               About Us
             </span>
-=======
-            <a href="/#">Home</a>
-            <a href="/products">Products</a>
-            <a href="/#">Gallery</a>
-            <a href="/#">Our Partners</a>
-            <a href="/#">About Us</a>
->>>>>>> Stashed changes
             <HiOutlineMagnifyingGlass
               size={24}
               className="cursor-pointer text-primary"

@@ -13,27 +13,18 @@ import Testimoni from "components/Testimoni";
 import WhyChooseUs from "components/WhyChooseUs";
 import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
-
-const FasilitasList = [
-  "1,7 Km dari RSU Nganjuk",
-  "2 Km dari Terminal Nganjuk",
-  "5 Menit Dari Alun - Alun",
-  "2 Km dari Pintu Tol",
-  "2 Km dari Pasar Besar",
-  "2 Km dari Stasiun Nganjuk",
-  "0.8 Km dari Pusat Perbelanjaan",
-  "Dekat Dengan Sekolah",
-];
-
-const SpesifikasiList = [
-  "Pondasi : Batu Kali + Stauss Pile ",
-  "Struktur : Beton Bertulang",
-  "Dinding : Bata Merah Plester Aci",
-  "Lantai : Keramik 40x40",
-  "Plafond : Gypsum Rangka Hollow",
-];
+import { useProductDataQuery } from "services/product/get-product";
 
 const Homepage = () => {
+  const { data: productData } = useProductDataQuery({
+    params: {
+      page: 1,
+      paginate: 1,
+    },
+  });
+
+  const showedProduct = productData?.data?.datas[0];
+
   return (
     <DefaultLayout>
       <div id="hero">
@@ -43,19 +34,25 @@ const Homepage = () => {
         <FormPromo />
       </div>
       <div className="mb-40">
-        <Fasilitas list={FasilitasList} />
+        <Fasilitas list={showedProduct?.facilities} />
       </div>
       <div className="mb-40">
         <Lokasi />
       </div>
       <div className="mb-40">
-        <ProductsList />
+        <ProductsList
+          id={`product-${showedProduct?.id}`}
+          title={"Our Product"}
+          denah={showedProduct?.image_denah_path}
+          images={showedProduct?.productImageSlides}
+          description={showedProduct?.description}
+        />
       </div>
       <div id="why-choose-us" className="mb-40">
         <WhyChooseUs />
       </div>
       <div className="mb-40">
-        <Spesifikasi list={SpesifikasiList} />
+        <Spesifikasi list={showedProduct?.specification} />
       </div>
       <div className="mb-40">
         <Testimoni />
