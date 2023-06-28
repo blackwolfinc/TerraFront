@@ -18,10 +18,8 @@ const OurProduct = () => {
         if (!dataProduct) {
             return;
         }
-        const datas = [...dataProduct?.data?.datas, ...dataProduct?.data?.datas]
-        console.log('dad', datas)
-        // setProductData(dataProduct?.data?.datas);
-        setProductData(datas);
+
+        setProductData(dataProduct?.data?.datas);
         // return () => {
         //     cleanup
         // };
