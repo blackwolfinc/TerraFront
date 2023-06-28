@@ -1,8 +1,8 @@
 import React from "react";
 import { register } from 'swiper/element/bundle';
-import "swiper/swiper.css";
-import SwiperProduct from "./SwiperProduct";
 import { useProductDataQuery } from "../../services/product/get-product";
+import Component from "./component";
+import dummy from '../../assets/img/no-image.jpg'
 
 register();
 
@@ -18,6 +18,15 @@ const ProductsList = () => {
     if (!dataProduct) {
       return;
     }
+    if (dataProduct?.data?.datas[0]?.productImageSlides?.length < 3) {
+      const addIndexData = 6 - dataProduct?.data?.datas[0]?.productImageSlides?.length
+      let i = 0;
+      do {
+        dataProduct?.data?.datas[0]?.productImageSlides.push({ id: 'x', image_path: dummy })
+        i++
+      }
+      while ( i < addIndexData);
+    }
 
     setProductData(dataProduct?.data?.datas[0]);
     // return () => {
@@ -27,36 +36,10 @@ const ProductsList = () => {
 
   return (
     <>
-      <div className={`relative ${isLoadingData ? 'animate-pulse' : ''}`}>
-        <div className="h-full p-10 flex flex-col justify-center items-end lg:h-64">
-          <SwiperProduct 
-            id={"desktop"}
-            value={productData}
-            classContainer="w-[50%] hidden lg:block" 
-          />
-        </div>
-        <div className="h-full p-10 flex justify-end items-start bg-primary text-white text lg:h-64">
-          <div className="w-full mt-[30%] lg:w-[50%] lg:mt-0 sm:mt-[20%]">
-            {/* mobile view */}
-            <SwiperProduct 
-              name={'mobile'}
-              value={productData}
-              classContainer="w-full block my-10 lg:hidden" 
-            />
-            {/**/}
-            <div className="text-sm sm:text-base">
-              {productData?.description}
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-[60%] lg:bottom-[18%] lg:left-[2%] lg:w-[45%] md:bottom-[55%] md:left-[10%] md:w-full max-w-[600px] shadow-2xl">
-          <img
-            className="h-full w-full object-center"
-            src={`${process.env.REACT_APP_API_IMAGE}/${productData?.image_denah_path}`}
-            alt={productData?.image_denah_path}
-           />
-        </div>
-      </div>
+      <Component
+        isLoadingData={isLoadingData}
+        productData={productData}
+      />
     </>
   );
 };

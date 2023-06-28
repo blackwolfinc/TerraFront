@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import DetailBlogs from "views/DetailBlogs";
 import DetailProduct from "views/DetailProduct";
+import OurProduct from "views/OurProduct";
 import Homepage from "views/Homepage";
 
 const Routers = () => {
@@ -11,10 +12,14 @@ const Routers = () => {
       <Route path="product">
         <Route path=":id" element={<DetailProduct />} />
       </Route>
+<<<<<<< Updated upstream
       <Route path="blogs">
         <Route path=":id" element={<DetailBlogs />} />
       </Route>
       <Route path="*" element={<h1>Not Found</h1>} />
+=======
+      <Route path="products"  element={<OurProduct />} />
+>>>>>>> Stashed changes
     </Routes>
   );
 };
