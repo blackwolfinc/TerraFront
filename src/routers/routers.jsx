@@ -10,16 +10,13 @@ const Routers = () => {
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="product">
+        <Route path="" element={<OurProduct />} />
         <Route path=":id" element={<DetailProduct />} />
       </Route>
-<<<<<<< Updated upstream
       <Route path="blogs">
         <Route path=":id" element={<DetailBlogs />} />
       </Route>
       <Route path="*" element={<h1>Not Found</h1>} />
-=======
-      <Route path="products"  element={<OurProduct />} />
->>>>>>> Stashed changes
     </Routes>
   );
 };

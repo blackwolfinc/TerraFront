@@ -11,7 +11,7 @@ const SwipperGallery = ({ value }) => {
   const imageMain =
     value.galleryImages &&
     value?.galleryImages[value?.galleryImages?.length - 1];
-  const idName = `swiper w-full swiper_gallery${value?.id}`
+  const idName = `swiper w-full swiper_gallery${value?.id}`;
 
   React.useEffect(() => {
     swiper.current = new Swiper(`.swiper_gallery${value?.id}`, {
@@ -50,11 +50,11 @@ const SwipperGallery = ({ value }) => {
   return (
     <>
       <div className="px-4 lg:px-10">
-        <div className="mb-10 flex flex-col lg:flex-row items-center justify-center lg:py-4 text-primary">
+        <div className="mb-10 flex flex-col items-center justify-center text-primary lg:flex-row lg:py-4">
           <div className="w-full lg:w-6/12">
             {value?.galleryImages ? (
               <img
-                className="w-full lg:w-[80%] rounded-lg object-cover"
+                className="min-h-full min-w-full rounded-lg object-cover lg:w-[80%]"
                 src={`${process.env.REACT_APP_API_IMAGE}/${imageMain?.image_path}`}
                 alt={imageMain?.image_path}
               />
@@ -66,7 +66,7 @@ const SwipperGallery = ({ value }) => {
               />
             )}
           </div>
-          <div className="hidden lg:flex w-full lg:w-6/12 flex-col gap-10 py-8 sm:px-8">
+          <div className="hidden w-full flex-col gap-10 py-8 sm:px-8 lg:flex lg:w-6/12">
             <div className="font-bevietnampro text-3xl font-bold leading-relaxed">
               {value?.title ?? "-"}
             </div>
@@ -85,9 +85,9 @@ const SwipperGallery = ({ value }) => {
                       key={image.id}
                       class="swiper-slide w-full rounded-lg bg-primary p-1"
                     >
-                      <div className="h-[120px] w-full sm:h-[200px]">
+                      <div className="flex h-[120px] w-full items-center justify-center overflow-hidden sm:h-[200px]">
                         <img
-                          className="h-full w-full object-center"
+                          className="min-h-full min-w-full object-cover object-center"
                           src={`${process.env.REACT_APP_API_IMAGE}/${image.image_path}`}
                           alt={image.image_path}
                         />
@@ -98,14 +98,14 @@ const SwipperGallery = ({ value }) => {
               </div>
             </div>
           </div>
-          <div className="w-4 sm:w-[3%] text-slate-600">
+          <div className="w-4 text-slate-600 sm:w-[3%]">
             <button ref={navigationNextRef}>
               <MdOutlineArrowForwardIos className="text-4xl" />
             </button>
           </div>
         </div>
         {/* mobile */}
-        <div className="flex w-full lg:w-6/12 flex-col gap-10 py-8 sm:px-8 lg:hidden">
+        <div className="flex w-full flex-col gap-10 py-8 sm:px-8 lg:hidden lg:w-6/12">
           <div className="font-bevietnampro text-3xl font-bold leading-relaxed">
             {value?.title ?? "-"}
           </div>
