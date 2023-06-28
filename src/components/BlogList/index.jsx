@@ -22,6 +22,7 @@ const BlogList = () => {
         {blogsDataRow.map((blog) => (
           <BlogItem
             key={blog.id}
+            id={blog.id}
             title={blog.title}
             date={blog.createdAt}
             creator={blog.createdBy}

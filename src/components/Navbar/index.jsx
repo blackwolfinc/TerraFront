@@ -2,14 +2,21 @@ import React from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { MdMenu, MdClose } from "react-icons/md";
 import TerraLogo from "assets/img/terra-logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = React.useState(false);
 
   return (
     <nav className="min-w-screen">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-20 py-6 max-lg:px-2">
-        <img src={TerraLogo} alt="Terra Logo" className="w-40 max-sm:w-28" />
+        <img
+          src={TerraLogo}
+          alt="Terra Logo"
+          className="w-40 cursor-pointer max-sm:w-28"
+          onClick={() => navigate("/")}
+        />
         <button
           className="hidden max-lg:block"
           onClick={() => setShowMenu(true)}
@@ -28,11 +35,33 @@ const Navbar = () => {
             <MdClose size={36} />
           </button>
           <div className="flex gap-10 font-serif font-light text-primary max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:font-bold max-lg:backdrop-blur-sm">
-            <a href="/#">Home</a>
-            <a href="/#">Products</a>
-            <a href="/#">Gallery</a>
-            <a href="/#">Our Partners</a>
-            <a href="/#">About Us</a>
+            <span className={"cursor-pointer"} onClick={() => navigate("/")}>
+              Home
+            </span>
+            <span
+              className={"cursor-pointer"}
+              onClick={() => navigate("/product")}
+            >
+              Products
+            </span>
+            <span
+              className={"cursor-pointer"}
+              onClick={() => navigate("#gallery")}
+            >
+              Gallery
+            </span>
+            <span
+              className={"cursor-pointer"}
+              onClick={() => navigate("#partner")}
+            >
+              Our Partners
+            </span>
+            <span
+              className={"cursor-pointer"}
+              onClick={() => navigate("/about")}
+            >
+              About Us
+            </span>
             <HiOutlineMagnifyingGlass
               size={24}
               className="cursor-pointer text-primary"

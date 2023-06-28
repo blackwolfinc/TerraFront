@@ -3,10 +3,24 @@ import moment from "moment";
 import DummyProfile from "assets/img/dummy-profile-pic.png";
 import NoImage from "assets/img/no-image.jpg";
 import { removeHTMLTags } from "utils/utils";
+import { useNavigate } from "react-router-dom";
 
-const BlogItem = ({ image, title, date, creator, description, category }) => {
+const BlogItem = ({
+  image,
+  id,
+  title,
+  date,
+  creator,
+  description,
+  category,
+}) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="relative h-[550px] w-full cursor-pointer shadow-md transition-all hover:-translate-y-1 max-md:h-[440px]">
+    <div
+      className="relative h-[550px] w-full cursor-pointer shadow-md transition-all hover:-translate-y-1 max-md:h-[440px]"
+      onClick={() => navigate(`/blogs/${id}`)}
+    >
       {category && (
         <div className="absolute left-4 top-4 w-fit rounded-md bg-accent px-2 py-1 text-sm font-bold text-white">
           <span>{category}</span>

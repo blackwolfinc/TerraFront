@@ -8,9 +8,10 @@ const fetchBlogData = async ({ queryKey }) => {
   return data;
 };
 
-const useBlogDataQuery = ({ id = null, params = null, settings = null }) => {
+const useBlogDataQuery = (options = {}) => {
+  const { id = null, params = null, settings = null } = options;
   return useQuery(
-    [`${API_ENDPOINTS.GET_BLOG}/${id ? id : ""}`, params],
+    [`${API_ENDPOINTS.GET_BLOG}${id ? `/${id}` : ""}`, params],
     fetchBlogData,
     settings
   );
