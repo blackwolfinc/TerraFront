@@ -13,31 +13,66 @@ import Testimoni from "components/Testimoni";
 import WhyChooseUs from "components/WhyChooseUs";
 import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
+import { useProductDataQuery } from "services/product/get-product";
 
 const Homepage = () => {
+  const { data: productData } = useProductDataQuery({
+    params: {
+      page: 1,
+      paginate: 1,
+    },
+  });
+
+  const showedProduct = productData?.data?.datas[0];
+
   return (
     <DefaultLayout>
-      <Hero />
-      <FormPromo />
-      <div className="mb-[300px]">
-        <Fasilitas />
+      <div id="hero">
+        <Hero />
       </div>
-      <Lokasi />
-      <ProductsList />
-      <WhyChooseUs />
-      <div className="mb-[300px]">
-        <Spesifikasi />
+      <div id="form-promo" className="mb-40">
+        <FormPromo />
       </div>
-      <div className="mb-[270px]">
+      <div className="mb-40">
+        <Fasilitas list={showedProduct?.facilities} />
+      </div>
+      <div className="mb-40">
+        <Lokasi />
+      </div>
+      <div className="mb-40">
+        <ProductsList
+          id={`product-${showedProduct?.id}`}
+          title={"Our Product"}
+          denah={showedProduct?.image_denah_path}
+          images={showedProduct?.productImageSlides}
+          description={showedProduct?.description}
+        />
+      </div>
+      <div id="why-choose-us" className="mb-40">
+        <WhyChooseUs />
+      </div>
+      <div className="mb-40">
+        <Spesifikasi list={showedProduct?.specification} />
+      </div>
+      <div className="mb-40">
         <Testimoni />
       </div>
-      <PromoList />
-      <Gallery />
-      <IntroVideo />
-      <div className="mb-[300px]">
+      <div id="promo-list " className="mb-40">
+        <PromoList />
+      </div>
+      <div className="mb-10">
+        <Gallery />
+      </div>
+      <div className="mb-40">
+        <IntroVideo />
+      </div>
+      <div className="mb-40">
         <BlogList />
       </div>
-      <FormPromo />
+      <div className="mb-40">
+        <FormPromo />
+      </div>
+      <div className="mx-80 my-80 h-40 bg-[url('assets/img/logo-transparent.png')] bg-contain bg-center bg-no-repeat opacity-50 max-lg:m-40 max-md:m-20"></div>
       <PartnersList />
     </DefaultLayout>
   );

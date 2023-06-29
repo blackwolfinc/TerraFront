@@ -3,7 +3,7 @@ import Routers from "routers/routers";
 
 const App = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden scroll-smooth">
       <Routers />
     </div>
   );
