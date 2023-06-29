@@ -20,13 +20,17 @@ const Component = ({
   };
 
   return (
-    <div className={`relative ${isLoading ? "animate-pulse" : ""}`}>
-      <div className="flex h-full flex-col items-end justify-center p-10 lg:h-64">
+    <div
+      className={`w-ful relative md:mt-[300px] lg:mt-0 ${
+        isLoading ? "animate-pulse" : ""
+      }`}
+    >
+      <div className="flex h-full flex-col items-end justify-center px-10 pb-10 lg:h-auto">
         <SwiperProduct
           id={id}
           title={title}
           images={images}
-          classContainer="w-[50%] hidden lg:block"
+          classContainer={`w-[50%] hidden lg:block text-primary`}
           section={section}
         />
       </div>
@@ -34,7 +38,7 @@ const Component = ({
         <div className="hidden w-full items-center justify-end lg:flex">
           <div className="w-[50%] border-black">
             <div
-              className="w-[60%] cursor-pointer rounded-lg bg-orange-600 py-2 text-center font-bevietnampro text-xl font-bold text-white shadow-custom1"
+              className="w-[60%] cursor-pointer rounded-lg bg-orange-600 py-4 text-center font-bevietnampro text-xl font-bold text-white shadow-custom1"
               onClick={onClickDetail}
             >
               More Detail
@@ -44,7 +48,9 @@ const Component = ({
       )}
       <div
         className={`text flex h-full items-start justify-end p-10 lg:h-64 ${
-          section === "ourproduct2" ? "bg-white" : "bg-primary"
+          section === "ourproduct2"
+            ? "bg-white text-primary"
+            : "bg-primary text-white"
         }`}
       >
         <div className="mt-[200px] w-full sm:mt-[20%] lg:mt-0 lg:w-[50%]">
@@ -53,7 +59,9 @@ const Component = ({
             id={id}
             title={title}
             images={images}
-            classContainer="w-full block mb-10 lg:hidden"
+            classContainer={`w-full block mb-10 mt-10 lg:hidden ${
+              section === "ourproduct2" ? "text-primary" : "text-white"
+            }`}
             section={section}
           />
           {/**/}
@@ -67,7 +75,7 @@ const Component = ({
           {section === "ourproduct" && (
             <div className="flex justify-center pt-8 lg:hidden">
               <div
-                className="w-full rounded-lg bg-orange-600 py-2 text-center font-bevietnampro text-sm font-bold text-white shadow-custom1"
+                className="w-full rounded-lg bg-orange-600 py-4 text-center font-bevietnampro font-bold text-white shadow-custom1 md:text-xl"
                 onClick={onClickDetail}
               >
                 More Detail
@@ -79,15 +87,17 @@ const Component = ({
           <div className="bottom-0 left-0 hidden h-[50%] w-[40%] rounded-e-xl bg-primary lg:absolute"></div>
         )}
       </div>
-      <div className="absolute top-0 max-w-[600px] px-2 sm:px-0 md:bottom-[60%] md:left-[10%] md:w-full lg:bottom-[15%] lg:left-[2%] lg:w-[45%]">
-        <img
-          className="h-full w-full object-center sm:rounded-lg md:h-[400px] lg:h-full "
-          src={`${process.env.REACT_APP_API_IMAGE}/${denah}`}
-          alt={`Denah ${title}`}
-        />
+      <div className="absolute top-0 aspect-video max-w-[600px] px-4 sm:px-0 md:-top-72 md:left-[10%] md:right-[10%] md:mx-auto md:aspect-auto md:w-full lg:bottom-12 lg:left-[2%] lg:top-0 lg:mx-0 lg:h-[420px] lg:w-[45%]">
+        <div className="h-full w-full overflow-hidden rounded-lg">
+          <img
+            className="min-h-full min-w-full object-cover object-center"
+            src={`${process.env.REACT_APP_API_IMAGE}/${denah}`}
+            alt={`Denah ${title}`}
+          />
+        </div>
         {section === "ourproduct" && (
           <>
-            <div className="-mt-[3%] hidden justify-center lg:flex">
+            <div className="-mt-[6%] hidden justify-center lg:flex">
               <div
                 className="w-[90%] cursor-pointer rounded-lg bg-orange-600 py-4 text-center font-bevietnampro text-xl font-bold text-white shadow-custom1"
                 onClick={onClickDetail}
@@ -104,7 +114,7 @@ const Component = ({
           <>
             <div className="-mt-[3%] flex justify-center">
               <div
-                className="w-[90%] cursor-pointer rounded-lg bg-orange-600 py-4 text-center font-bevietnampro text-xl font-bold text-white shadow-custom1"
+                className="w-[90%] cursor-pointer rounded-lg bg-orange-600 py-4 text-center font-bevietnampro font-bold text-white shadow-custom1 md:text-xl lg:hidden"
                 onClick={onClickDetail}
               >
                 More Detail

@@ -44,24 +44,9 @@ const Navbar = () => {
             >
               Products
             </span>
-            <span
-              className={"cursor-pointer"}
-              onClick={() => navigate("#gallery")}
-            >
-              Gallery
-            </span>
-            <span
-              className={"cursor-pointer"}
-              onClick={() => navigate("#partner")}
-            >
-              Our Partners
-            </span>
-            <span
-              className={"cursor-pointer"}
-              onClick={() => navigate("/about")}
-            >
-              About Us
-            </span>
+            <a href="/#gallery">Gallery</a>
+            <a href="/#partners">Our Partners</a>
+            <a href="/#about">About Us</a>
             <HiOutlineMagnifyingGlass
               size={24}
               className="cursor-pointer text-primary"

@@ -41,17 +41,20 @@ const SwiperProduct = ({ id, title, images, classContainer, section }) => {
   return (
     <>
       <div className={classContainer}>
-        <div className="mb-4 py-4 font-arimo text-2xl uppercase tracking-widest text-white md:text-2xl lg:text-4xl lg:text-primary">
+        <div className="mb-4 pb-4 font-arimo text-2xl font-bold uppercase tracking-widest md:text-2xl lg:text-4xl">
           {title}
         </div>
         <div className="flex flex-row">
-          <div id={idName} class="swiper">
-            <div class="swiper-wrapper">
+          <div id={idName} className="swiper">
+            <div className="swiper-wrapper">
               {images &&
                 images?.map((image, i) => {
                   return (
-                    <div key={i} class="swiper-slide rounded-lg bg-primary p-1">
-                      <div className="h-[100px] w-full">
+                    <div
+                      key={`product-image-${i}`}
+                      className="swiper-slide rounded-lg bg-primary p-1"
+                    >
+                      <div className="h-[100px] w-full overflow-hidden">
                         <img
                           className="min-h-full min-w-full object-cover object-center"
                           src={

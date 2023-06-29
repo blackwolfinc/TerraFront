@@ -30,7 +30,7 @@ const Spesifikasi = ({ list }) => {
   }, [list]);
 
   return (
-    <div>
+    <div className="mx-auto max-w-screen-xl">
       <div className="mx-10 max-lg:mx-0">
         <div className="mb-20">
           <div className="relative flex w-full items-stretch max-lg:flex-col">

@@ -24,12 +24,14 @@ const Gallery = () => {
 
   return (
     <>
-      <div className="bg-primary">
-        <div className="py-6 text-center font-dmserif text-6xl text-white">
+      <div>
+        <div className="bg-primary py-6 text-center font-dmserif text-3xl text-white md:text-6xl">
           Galery
         </div>
-        <div className="flex flex-col justify-start gap-10 bg-white py-8">
-          <SwipperGallery value={galleryData} key={galleryData.id} />
+        <div className="mx-auto max-w-screen-xl">
+          <div className="flex flex-col justify-start gap-10 bg-white py-8">
+            <SwipperGallery value={galleryData} key={galleryData.id} />
+          </div>
         </div>
       </div>
     </>

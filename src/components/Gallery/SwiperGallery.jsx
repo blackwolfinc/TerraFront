@@ -16,21 +16,13 @@ const SwipperGallery = ({ value }) => {
   React.useEffect(() => {
     swiper.current = new Swiper(`.swiper_gallery${value?.id}`, {
       modules: [Navigation, Pagination, Scrollbar],
-      slidesPerView: 3,
+      slidesPerView: "auto",
       spaceBetween: 20,
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   type: 'bullets',
-      // },
       navigation: {
         nextEl: navigationNextRef.current,
         prevEl: navigationPrevRef.current,
       },
       loop: true,
-      // autoplay: {
-      //   delay: 2500,
-      //   disableOnInteraction: false,
-      // },
       breakpoints: {
         425: {
           slidesPerView: 1,
@@ -77,13 +69,13 @@ const SwipperGallery = ({ value }) => {
         </div>
         <div className="flex w-full flex-row items-center justify-between">
           <div className="w-[97%]">
-            <div class={idName}>
-              <div class="swiper-wrapper">
+            <div className={idName}>
+              <div className="swiper-wrapper">
                 {value?.galleryImages?.map((image) => {
                   return (
                     <div
                       key={image.id}
-                      class="swiper-slide w-full rounded-lg bg-primary p-1"
+                      className="swiper-slide w-full rounded-lg bg-primary p-1"
                     >
                       <div className="flex h-[120px] w-full items-center justify-center overflow-hidden sm:h-[200px]">
                         <img

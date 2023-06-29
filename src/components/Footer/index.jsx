@@ -3,9 +3,12 @@ import TerraLogoWhite from "assets/img/terra-logo-white.png";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import { HiOutlineMail, HiPhone } from "react-icons/hi";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
-    <footer className="w-full bg-dark-primary max-lg:mt-60 max-lg:bg-white">
+    <footer
+      className="w-full bg-dark-primary max-lg:mt-60 max-lg:bg-white"
+      {...props}
+    >
       <div className="mx-auto flex max-w-7xl max-lg:flex-col">
         <div className="w-1/2 bg-dark-primary px-10 py-20 font-baijamjuree text-white max-lg:order-2 max-lg:w-full">
           <img src={TerraLogoWhite} alt="Terra Logo" className="mb-6 w-60" />

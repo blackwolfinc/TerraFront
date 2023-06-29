@@ -4,7 +4,9 @@ import Component from "./component";
 const ProductsList = (props) => {
   return (
     <>
-      <Component {...props} />
+      <div className="mx-auto w-full max-w-screen-xl">
+        <Component {...props} />
+      </div>
     </>
   );
 };

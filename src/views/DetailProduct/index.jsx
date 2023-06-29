@@ -9,6 +9,7 @@ import { useProductDataQuery } from "services/product/get-product";
 import FormPromo from "components/FormPromo";
 import useWindowDimensions from "utils/useWindowDimension";
 import PromoList from "components/PromoList";
+import Aos from "aos";
 
 const DetailProduct = () => {
   const { id } = useParams();
@@ -23,10 +24,12 @@ const DetailProduct = () => {
     },
   });
 
+  Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
+
   return (
     <DefaultLayout>
       <div className="mt-10">
-        <div className="mb-10">
+        <div className="mb-10" data-aos="fade-up">
           {!productLoading ? (
             <h1 className="text-center font-dmserif text-5xl text-primary">
               {productData?.data.title}
@@ -35,7 +38,7 @@ const DetailProduct = () => {
             <div className="mx-auto h-12 w-80 animate-pulse rounded-lg bg-gray-200"></div>
           )}
         </div>
-        <div>
+        <div data-aos="fade-up">
           <div className="relative mx-auto w-full px-40 pb-10 max-lg:px-10">
             <div className="relative z-10 flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl shadow-custom1">
               {productLoading && (
@@ -56,7 +59,7 @@ const DetailProduct = () => {
         </div>
         {!productLoading && (
           <div>
-            <div className="mx-28 py-28 max-lg:mx-10">
+            <div className="mx-28 py-28 max-lg:mx-10" data-aos="fade-up">
               <h3 className="font-baijamjuree text-3xl font-bold text-black/80 max-lg:text-center">
                 High Quality Home
               </h3>
@@ -92,16 +95,16 @@ const DetailProduct = () => {
                 className="font-serif"
               ></div>
             </div>
-            <div className="mb-40">
+            <div className="mb-40" data-aos="fade-up">
               <Fasilitas list={productData?.data.facilities} />
             </div>
-            <div className="mb-40">
+            <div className="mb-40" data-aos="fade-up">
               <Spesifikasi list={productData?.data.specification} />
             </div>
-            <div className="mb-40">
+            <div className="mb-40" data-aos="fade-up">
               <FormPromo />
             </div>
-            <div>
+            <div className="mb-40" data-aos="fade-up">
               <PromoList />
             </div>
           </div>

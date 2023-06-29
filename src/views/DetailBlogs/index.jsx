@@ -1,3 +1,4 @@
+import Aos from "aos";
 import DefaultLayout from "layout/DefaultLayout";
 import moment from "moment";
 import React from "react";
@@ -11,10 +12,15 @@ const DetailBlogs = () => {
     id: id,
   });
 
+  Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
+
   return (
     <>
       <DefaultLayout>
-        <div className="mx-auto min-h-screen max-w-screen-xl">
+        <div
+          className="mx-auto min-h-screen max-w-screen-xl"
+          data-aos="fade-in"
+        >
           <div
             className={`mb-10 flex aspect-[20/9] w-full items-center justify-center overflow-hidden bg-gray-200 ${
               blogLoading ? "animate-pulse" : ""
@@ -28,7 +34,7 @@ const DetailBlogs = () => {
               />
             )}
           </div>
-          <div className="px-20 max-md:px-4">
+          <div className="px-20 max-md:px-4" data-aos="fade-up">
             <div className="mb-2">
               {blogLoading ? (
                 <div className="w-30 h-7 animate-pulse rounded-lg bg-gray-200"></div>

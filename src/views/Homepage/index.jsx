@@ -1,3 +1,4 @@
+import Aos from "aos";
 import BlogList from "components/BlogList";
 import Fasilitas from "components/Fasilitas";
 import FormPromo from "components/FormPromo";
@@ -15,6 +16,8 @@ import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
 import { useProductDataQuery } from "services/product/get-product";
 
+Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
+
 const Homepage = () => {
   const { data: productData } = useProductDataQuery({
     params: {
@@ -27,19 +30,19 @@ const Homepage = () => {
 
   return (
     <DefaultLayout>
-      <div id="hero">
+      <div id="hero" data-aos="fade-up">
         <Hero />
       </div>
-      <div id="form-promo" className="mb-40">
+      <div id="form-promo" className="mb-40" data-aos="fade-up">
         <FormPromo />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <Fasilitas list={showedProduct?.facilities} />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <Lokasi />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <ProductsList
           id={`product-${showedProduct?.id}`}
           title={"Our Product"}
@@ -48,32 +51,34 @@ const Homepage = () => {
           description={showedProduct?.description}
         />
       </div>
-      <div id="why-choose-us" className="mb-40">
+      <div id="why-choose-us" className="mb-40" data-aos="fade-up">
         <WhyChooseUs />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <Spesifikasi list={showedProduct?.specification} />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <Testimoni />
       </div>
-      <div id="promo-list " className="mb-40">
+      <div id="promo-list" className="mb-40" data-aos="fade-up">
         <PromoList />
       </div>
-      <div className="mb-10">
+      <div id="gallery" className="mb-10" data-aos="fade-up">
         <Gallery />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <IntroVideo />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <BlogList />
       </div>
-      <div className="mb-40">
+      <div className="mb-40" data-aos="fade-up">
         <FormPromo />
       </div>
       <div className="mx-80 my-80 h-40 bg-[url('assets/img/logo-transparent.png')] bg-contain bg-center bg-no-repeat opacity-50 max-lg:m-40 max-md:m-20"></div>
-      <PartnersList />
+      <div id="partners">
+        <PartnersList />
+      </div>
     </DefaultLayout>
   );
 };

@@ -1,9 +1,12 @@
+import Aos from "aos";
 import FormPromo from "components/FormPromo";
-import ProductsList from "components/ProductsList/component";
+import ProductsList from "components/ProductsList";
 import PromoList from "components/PromoList";
 import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
 import { useProductDataQuery } from "services/product/get-product";
+
+Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
 
 const OurProduct = () => {
   const [productData, setProductData] = React.useState([]);
@@ -13,17 +16,16 @@ const OurProduct = () => {
     settings: "",
   });
 
-    React.useEffect(() => {
-        if (!dataProduct) {
-            return;
-        }
+  React.useEffect(() => {
+    if (!dataProduct) {
+      return;
+    }
 
-        setProductData(dataProduct?.data?.datas);
-        // return () => {
-        //     cleanup
-        // };
-    }, [dataProduct]);
-
+    setProductData(dataProduct?.data?.datas);
+    // return () => {
+    //     cleanup
+    // };
+  }, [dataProduct]);
 
   return (
     <DefaultLayout>
@@ -34,23 +36,24 @@ const OurProduct = () => {
         {productData &&
           productData?.map((value, i) => {
             return (
-              <ProductsList
-                key={value.id}
-                id={value.id}
-                title={value.title}
-                denah={value?.image_denah_path}
-                images={value?.productImageSlides}
-                description={value?.description}
-                isLoading={isLoadingData}
-                section={i < 1 ? "ourproduct" : "ourproduct2"}
-              />
+              <div key={value.id} data-aos="fade-up">
+                <ProductsList
+                  id={value.id}
+                  title={value.title}
+                  denah={value?.image_denah_path}
+                  images={value?.productImageSlides}
+                  description={value?.description}
+                  isLoading={isLoadingData}
+                  section={i < 1 ? "ourproduct" : "ourproduct2"}
+                />
+              </div>
             );
           })}
       </div>
-      <div id="form-promo" className="mb-40">
+      <div id="form-promo" className="mb-40" data-aos="fade-up">
         <FormPromo />
       </div>
-      <div>
+      <div className="mb-40" data-aos="fade-up">
         <PromoList />
       </div>
     </DefaultLayout>
