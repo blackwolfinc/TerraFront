@@ -39,7 +39,10 @@ const Navbar = () => {
               <NavItemAnimation>
                 <span
                   className={"cursor-pointer"}
-                  onClick={() => navigate("/")}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    navigate("/");
+                  }}
                 >
                   Home
                 </span>

@@ -10,7 +10,7 @@ const DefaultLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className=" mx-auto mt-20 bg-white">{children}</main>
+      <main className=" mx-auto mt-32 bg-white">{children}</main>
       <Footer id="about" />
     </>
   );
