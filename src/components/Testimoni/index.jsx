@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import { Navigation } from "swiper";
-import useWindowDimensions from "utils/useWindowDimension";
+import Swiper from "swiper";
+import { register } from "swiper/element";
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
 
 const DummyTestimoniData = [
   {
@@ -47,7 +50,36 @@ const DummyTestimoniData = [
 ];
 
 const Testimoni = () => {
-  const { width } = useWindowDimensions();
+  const swiper = useRef(null);
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
+  const id = Math.round(Math.random() * 100);
+
+  useEffect(() => {
+    swiper.current = new Swiper(`.swiper-testimoni-${id}`, {
+      slidesPerView: "auto",
+      spaceBetween: 20,
+      navigation: {
+        nextEl: navigationNextRef.current,
+        prevEl: navigationPrevRef.current,
+      },
+      loop: true,
+      breakpoints: {
+        768: {
+          slidesPerView: 1,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+    register();
+
+    return () => {
+      swiper.current.destroy();
+    };
+  });
 
   return (
     <div className="mx-auto max-w-screen-xl">
@@ -55,31 +87,35 @@ const Testimoni = () => {
         <h3 className="mb-24 text-center font-arimo text-6xl font-bold text-primary max-md:mb-10 max-md:text-4xl max-sm:text-2xl">
           Apa Kata Mereka ?
         </h3>
-        <Swiper
-          spaceBetween={24}
-          slidesPerView={width > 768 ? 3 : 1}
-          loop={true}
-          navigation={true}
-          modules={[Navigation]}
-          style={{
-            "--swiper-navigation-color": "white",
-          }}
-          className="testimoni-swiper"
-        >
-          {DummyTestimoniData.map((testimoni, i) => (
-            <SwiperSlide key={`testi-${i}`} className="!h-auto">
-              <div className="flex min-h-full flex-col gap-4 rounded-lg bg-primary p-8 text-white shadow-custom1">
-                <p className="flex-1 text-lg max-md:text-center max-md:text-3xl max-md:leading-relaxed max-sm:text-lg">
-                  {testimoni.message}
-                </p>
-                <hr />
-                <span className="w-full text-center font-bold">
-                  {testimoni.name}
-                </span>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="relative px-20 max-md:px-0">
+          <div className={`swiper-testimoni-${id} w-full overflow-hidden`}>
+            <div className={`swiper-wrapper`}>
+              {DummyTestimoniData.map((testimoni, i) => (
+                <div key={`testi-${i}`} className="swiper-slide !h-auto">
+                  <div className="flex min-h-full flex-col gap-4 rounded-lg bg-primary p-8 text-white shadow-custom1">
+                    <p className="flex-1 text-lg max-md:text-center max-md:text-3xl max-md:leading-relaxed max-sm:text-lg">
+                      {testimoni.message}
+                    </p>
+                    <hr />
+                    <span className="w-full text-center font-bold">
+                      {testimoni.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-2 top-0 z-10 flex items-center text-white md:left-0 md:text-primary">
+            <div ref={navigationPrevRef}>
+              <MdOutlineArrowBackIos size={24} />
+            </div>
+          </div>
+          <div className="absolute bottom-0 right-2 top-0 z-10 flex items-center text-white md:right-0 md:text-primary">
+            <div ref={navigationNextRef}>
+              <MdOutlineArrowForwardIos size={24} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

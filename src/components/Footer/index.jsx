@@ -32,16 +32,19 @@ const Footer = (props) => {
           </p>
         </div>
         <div className="flex items-center bg-primary">
-          <div className="flex flex-1 gap-8 px-10 max-lg:relative max-lg:flex-col max-lg:items-center max-lg:gap-0 max-lg:px-0 max-lg:pt-32 max-sm:pt-16">
-            <div className="-top-1/2 max-lg:absolute">
-              <iframe
-                title="map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.372306013702!2d111.89092857671346!3d-8.063453671244664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78e2dd9dbdf3e3%3A0x540402dd85e005f3!2sJl.%20Mayjend%20Sungkono%20No.84%2C%20Kutoanyar%2C%20Kec.%20Tulungagung%2C%20Kabupaten%20Tulungagung%2C%20Jawa%20Timur%2066219!5e0!3m2!1sid!2sid!4v1686721217281!5m2!1sid!2sid"
-                className="h-[240px] w-[360px] rounded-md max-sm:h-[160px] max-sm:w-[240px]"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+          <div className="flex flex-1 gap-8 px-10 max-lg:relative max-lg:flex-col max-lg:items-center max-lg:gap-0 max-lg:px-0">
+            <div className="relative z-10 w-full bg-white lg:bg-transparent">
+              <div className="relative z-10 flex w-full justify-center">
+                <iframe
+                  title="map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.372306013702!2d111.89092857671346!3d-8.063453671244664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78e2dd9dbdf3e3%3A0x540402dd85e005f3!2sJl.%20Mayjend%20Sungkono%20No.84%2C%20Kutoanyar%2C%20Kec.%20Tulungagung%2C%20Kabupaten%20Tulungagung%2C%20Jawa%20Timur%2066219!5e0!3m2!1sid!2sid!4v1686721217281!5m2!1sid!2sid"
+                  className="aspect-[3/2] w-[90%] rounded-md md:w-[80%] lg:w-[360px]"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 z-0 h-1/3 w-full bg-primary lg:hidden"></div>
             </div>
             <div className="font-baijamjuree text-white max-lg:w-full max-lg:bg-primary max-lg:px-10 max-lg:pt-4">
               <h1 className="mb-10 text-2xl font-bold">Contact Us</h1>
