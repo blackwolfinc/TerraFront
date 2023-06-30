@@ -1,76 +1,74 @@
 import React from "react";
-import Swiper, { Navigation, Pagination, Scrollbar } from "swiper";
-import { register } from "swiper/element/bundle";
 import "swiper/swiper.css";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-const SwiperProduct = ({ id, title, images, classContainer, section }) => {
-  const swiper = React.useRef(null);
-  const navigationPrevRef = React.useRef(null);
-  const navigationNextRef = React.useRef(null);
-  const idName = `swiper_product_list_${id}`;
+const SwiperProduct = ({ id, title, images, classContainer, onClickImage }) => {
+  const swiperRef = React.useRef(null);
 
-  React.useEffect(() => {
-    swiper.current = new Swiper(`#swiper_product_list_${id}`, {
-      modules: [Navigation, Pagination, Scrollbar],
-      slidesPerView: "auto",
-      spaceBetween: 20,
-      navigation: {
-        nextEl: navigationNextRef.current,
-        prevEl: navigationPrevRef.current,
-      },
-      loop: true,
-      breakpoints: {
-        425: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 3,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
+  const getImages = () => {
+    if (images.length === 0) {
+      return [];
+    }
 
-    register();
+    const minimum = 6;
+    const imagePaths = images.map((image) => image.image_path);
+    const dupImages = [];
 
-    // return () => swiper.current.destroy();
-  }, [id]);
+    while (dupImages.length < minimum) {
+      dupImages.push(...imagePaths);
+    }
+
+    return dupImages;
+  };
 
   return (
     <>
       <div className={classContainer}>
-        <div className="mb-4 pb-4 font-arimo text-2xl font-bold uppercase tracking-widest md:text-2xl lg:text-4xl">
+        <div className="mb-4 font-arimo text-2xl uppercase tracking-widest md:text-2xl lg:mb-10 lg:text-4xl">
           {title}
         </div>
-        <div className="flex flex-row">
-          <div id={idName} className="swiper">
-            <div className="swiper-wrapper">
-              {images &&
-                images?.map((image, i) => {
-                  return (
+        <div className="mb-7 flex flex-row lg:mb-0">
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            loop={true}
+            slidesPerView={3}
+            spaceBetween={16}
+            className="relative"
+          >
+            {images &&
+              getImages()?.map((image, i) => {
+                return (
+                  <SwiperSlide
+                    key={`product-image-${i}`}
+                    className="aspect-[4/3] rounded-lg border-2 border-primary bg-primary lg:aspect-video lg:border-4"
+                  >
                     <div
-                      key={`product-image-${i}`}
-                      className="swiper-slide rounded-lg bg-primary p-1"
+                      className="h-full w-full cursor-pointer overflow-hidden rounded-md"
+                      onClick={() => {
+                        if (onClickImage) onClickImage(image);
+                      }}
                     >
-                      <div className="h-[100px] w-full overflow-hidden">
-                        <img
-                          className="min-h-full min-w-full object-cover object-center"
-                          src={
-                            image.id !== "x"
-                              ? `${process.env.REACT_APP_API_IMAGE}/${image.image_path}`
-                              : image.image_path
-                          }
-                          alt={image.image_path}
-                        />
-                      </div>
+                      <img
+                        className="min-h-full min-w-full object-cover object-center"
+                        src={
+                          image.id !== "x"
+                            ? `${process.env.REACT_APP_API_IMAGE}/${image}`
+                            : image
+                        }
+                        alt={`Product ${i}`}
+                      />
                     </div>
-                  );
-                })}
-            </div>
-          </div>
-          <button ref={navigationNextRef}>
+                  </SwiperSlide>
+                );
+              })}
+          </Swiper>
+          <button
+            className="hidden lg:block"
+            onClick={() => swiperRef.current.slideNext()}
+          >
             <MdOutlineArrowForwardIos className="w-8 text-2xl" />
           </button>
         </div>
