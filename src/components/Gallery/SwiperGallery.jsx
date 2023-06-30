@@ -26,15 +26,15 @@ const SwipperGallery = ({ value }) => {
       breakpoints: {
         425: {
           slidesPerView: 3,
-          spaceBetween:10
+          spaceBetween: 10,
         },
         768: {
           slidesPerView: 3,
-          spaceBetween:10
+          spaceBetween: 10,
         },
         1024: {
           slidesPerView: 3,
-          spaceBetween:20
+          spaceBetween: 20,
         },
       },
     });
@@ -42,14 +42,32 @@ const SwipperGallery = ({ value }) => {
     // return () => swiper.current.destroy();
   });
 
+  const getImages = () => {
+    if (!value?.galleryImages) return [];
+
+    if (value?.galleryImages?.length === 0) {
+      return [];
+    }
+
+    const minimum = 6;
+    const imagePaths = value?.galleryImages?.map((image) => image.image_path);
+    const dupImages = [];
+
+    while (dupImages.length < minimum) {
+      dupImages.push(...imagePaths);
+    }
+
+    return dupImages;
+  };
+
   return (
     <>
       <div className="px-4 lg:px-10">
-        <div className="mb-10 flex flex-col items-center justify-center text-primary lg:flex-row lg:py-4">
-          <div className="w-full lg:w-6/12">
+        <div className="mb-4 flex flex-col justify-center text-primary lg:mb-10 lg:flex-row lg:py-4">
+          <div className="flex aspect-[3/2] w-full items-center justify-center overflow-hidden rounded-lg shadow-custom1 lg:w-6/12">
             {value?.galleryImages ? (
               <img
-                className="min-h-full min-w-full rounded-lg object-cover lg:p-4"
+                className="min-h-full min-w-full object-cover"
                 src={`${process.env.REACT_APP_API_IMAGE}/${imageMain?.image_path}`}
                 alt={imageMain?.image_path}
               />
@@ -62,29 +80,29 @@ const SwipperGallery = ({ value }) => {
             )}
           </div>
           <div className="hidden w-full flex-col gap-10 py-8 sm:px-8 lg:flex lg:w-6/12">
-            <div className="font-bevietnampro text-3xl font-bold leading-relaxed">
-              {value?.title ?? "-"}
+            <div className="font-bevietnampro text-3xl font-bold leading-relaxed text-primary">
+              {value?.title || "-"}
             </div>
             <div className="text-justify font-brygada text-lg">
-              {value?.description ?? "-"}
+              {value?.description || "-"}
             </div>
           </div>
         </div>
         <div className="flex w-full flex-row items-center justify-between">
-          <div className="w-[97%]">
+          <div className="w-full lg:w-[97%]">
             <div className={idName}>
               <div className="swiper-wrapper">
-                {value?.galleryImages?.map((image) => {
+                {getImages()?.map((image) => {
                   return (
                     <div
                       key={image.id}
                       className="swiper-slide w-full rounded-lg"
                     >
-                      <div className="flex h-full w-full items-center justify-center overflow-hidden ">
+                      <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-lg shadow-custom1">
                         <img
-                          className="min-h-full min-w-full object-cover object-center rounded-lg"
-                          src={`${process.env.REACT_APP_API_IMAGE}/${image.image_path}`}
-                          alt={image.image_path}
+                          className="min-h-full min-w-full object-cover object-center"
+                          src={`${process.env.REACT_APP_API_IMAGE}/${image}`}
+                          alt={image}
                         />
                       </div>
                     </div>
@@ -93,18 +111,18 @@ const SwipperGallery = ({ value }) => {
               </div>
             </div>
           </div>
-          <div className="w-4 text-slate-600 sm:w-[3%]">
+          <div className="hidden w-4 text-slate-600 sm:w-[3%] lg:block">
             <button ref={navigationNextRef}>
               <MdOutlineArrowForwardIos className="text-xl md:text-2xl lg:text-3xl" />
             </button>
           </div>
         </div>
         {/* mobile */}
-        <div className="flex w-full flex-col gap-10 py-8 sm:px-8 lg:hidden lg:w-6/12">
-          <div className="font-bevietnampro text-3xl font-bold leading-relaxed">
+        <div className="mt-5 flex w-full flex-col sm:px-8 lg:hidden lg:w-6/12">
+          <div className="mb-6 font-bevietnampro text-2xl font-bold leading-relaxed text-primary">
             {value?.title ?? "-"}
           </div>
-          <div className="text-justify font-brygada text-sm sm:text-lg">
+          <div className="text-justify font-brygada text-sm text-primary sm:text-lg">
             {value?.description ?? "-"}
           </div>
         </div>
