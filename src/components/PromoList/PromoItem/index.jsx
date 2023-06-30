@@ -9,7 +9,7 @@ const PromoItem = (props) => {
       className="flex flex-col no-underline md:flex-row md:gap-x-8 lg:gap-x-16"
     >
       <div className="mb-4 md:w-1/2">
-        <div className="flex h-[12rem] items-center justify-center overflow-hidden rounded-2xl border-[16px] lg:h-[18rem]">
+        <div className="flex h-[12rem] items-center justify-center overflow-hidden rounded-2xl border-4 lg:h-[18rem] lg:border-[12px]">
           <img
             src={
               image ? `${process.env.REACT_APP_API_IMAGE}/${image}` : NoImage
