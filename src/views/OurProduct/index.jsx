@@ -54,7 +54,7 @@ const OurProduct = () => {
         <FormPromo />
       </div>
       <div className="mb-40" data-aos="fade-up">
-        <PromoList />
+        <PromoList onlyFeatured />
       </div>
     </DefaultLayout>
   );
