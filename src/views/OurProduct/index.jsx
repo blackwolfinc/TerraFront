@@ -29,7 +29,7 @@ const OurProduct = () => {
 
   return (
     <DefaultLayout>
-      <div className="mb-40 mt-4 px-16 font-dmserif text-6xl font-bold tracking-wider text-primary lg:mb-40 lg:mt-10 lg:text-center">
+      <div className="mb-40 px-16 pt-28 font-dmserif text-6xl font-bold tracking-wider text-primary lg:mb-40 lg:pt-32 lg:text-center">
         Our product
       </div>
       <div className="flex flex-col gap-40 lg:mb-40">

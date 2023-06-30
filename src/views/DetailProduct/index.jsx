@@ -46,7 +46,7 @@ const DetailProduct = () => {
 
   return (
     <DefaultLayout>
-      <div className="mt-10">
+      <div className="pt-28 lg:pt-32">
         <div className="mx-auto mb-32 max-w-screen-xl" data-aos="fade-up">
           {!productLoading ? (
             <h1 className="break-words px-8 font-dmserif text-6xl text-primary lg:text-center lg:text-7xl">

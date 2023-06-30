@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { MdMenu, MdClose } from "react-icons/md";
 import TerraLogo from "assets/img/logo-transparent.png";
@@ -7,11 +7,30 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = React.useState(false);
+  const [scrollPercentage, setScrollPercentage] = React.useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      const percentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+      setScrollPercentage(percentage.toFixed(2));
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <nav className="fixed z-[999] w-full bg-white/60 backdrop-blur-lg">
       <div className="mx-auto max-w-screen-xl">
-        <div className="flex w-full items-center justify-between px-20 py-6 max-lg:px-8">
+        <div
+          className={`flex w-full items-center justify-between px-20 py-6 ${
+            scrollPercentage > 0 ? "" : "lg:pt-12"
+          } transition-all max-lg:px-8`}
+        >
           <img
             src={TerraLogo}
             alt="Terra Logo"
@@ -35,7 +54,7 @@ const Navbar = () => {
             >
               <MdClose size={36} />
             </button>
-            <div className="flex gap-10 font-serif font-light text-primary max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:font-bold max-lg:backdrop-blur-sm">
+            <div className="flex items-center gap-10 font-serif font-light text-primary max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:font-bold max-lg:backdrop-blur-sm">
               <NavItemAnimation>
                 <span
                   className={"cursor-pointer"}
@@ -78,7 +97,7 @@ const Navbar = () => {
 
 const NavItemAnimation = ({ children }) => {
   return (
-    <div className="group relative pb-1">
+    <div className="group relative pb-1 text-xl">
       {children}
       <div className="absolute left-0 h-1 w-0 bg-primary transition-all group-hover:w-3/4"></div>
     </div>

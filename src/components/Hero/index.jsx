@@ -18,7 +18,7 @@ const Hero = () => {
               <div className="absolute -right-[1rem] top-[2rem] z-0 h-[2rem] w-[2rem] bg-primary opacity-80 md:-right-[1.5rem] md:top-[4rem] md:h-[4rem] md:w-[4rem] lg:-right-[2rem] lg:top-[90%] lg:z-10 lg:h-[7rem] lg:w-[8rem]"></div>
             </div>
           </div>
-          <div className="flex items-center lg:absolute lg:left-0 lg:top-0 lg:z-20 lg:h-full lg:w-full">
+          <div className="pointer-events-none flex items-center lg:absolute lg:left-0 lg:top-0 lg:z-20 lg:h-full lg:w-full">
             <div className="bg-primary px-8 pb-8 pt-20 text-white md:px-24 lg:w-[40%] lg:px-12 lg:py-12">
               <h5 className="mb-4 w-[80%] font-serif text-3xl md:text-4xl lg:w-[75%] lg:text-5xl lg:leading-normal">
                 We Help You Make Modern Interior

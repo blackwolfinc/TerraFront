@@ -92,10 +92,10 @@ const SwipperGallery = ({ value }) => {
           <div className="w-full lg:w-[97%]">
             <div className={idName}>
               <div className="swiper-wrapper">
-                {getImages()?.map((image) => {
+                {getImages()?.map((image, i) => {
                   return (
                     <div
-                      key={image.id}
+                      key={`gallery-${i}`}
                       className="swiper-slide w-full rounded-lg"
                     >
                       <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-lg shadow-custom1">
@@ -120,10 +120,10 @@ const SwipperGallery = ({ value }) => {
         {/* mobile */}
         <div className="mt-5 flex w-full flex-col sm:px-8 lg:hidden lg:w-6/12">
           <div className="mb-6 font-bevietnampro text-2xl font-bold leading-relaxed text-primary">
-            {value?.title ?? "-"}
+            {value?.title || "-"}
           </div>
           <div className="text-justify font-brygada text-sm text-primary sm:text-lg">
-            {value?.description ?? "-"}
+            {value?.description || "-"}
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ const DetailBlogs = () => {
     <>
       <DefaultLayout>
         <div
-          className="mx-auto min-h-screen max-w-screen-xl"
+          className="mx-auto mt-28 min-h-screen max-w-screen-xl lg:mt-32"
           data-aos="fade-in"
         >
           <div
