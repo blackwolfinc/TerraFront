@@ -1,14 +1,13 @@
 import React from "react";
 import HeroSlide from "./HeroSlide";
 import Hero1 from "../../assets/img/hero/hero-1.png";
-import Hero2 from "../../assets/img/hero/hero-2.png";
 
 const images = [Hero1, Hero1, Hero1];
 
 const Hero = () => {
   return (
     <>
-      <div className="mx-auto max-w-screen-xl lg:-mb-[14rem] lg:pt-[2rem]">
+      <div className="mx-auto max-w-screen-xl">
         <div className="px-8 md:px-24">
           <div className="relative top-[3rem] lg:flex lg:min-h-[600px] lg:justify-end">
             <div className="absolute -left-[1rem] -top-[1rem] z-20 h-[2rem] w-[2rem] bg-primary opacity-80 md:-left-[1.5rem] md:-top-[1.5rem] md:h-[4rem] md:w-[4rem] lg:left-[1rem] lg:top-[76%] lg:z-0 lg:h-[7rem] lg:w-[7rem]"></div>
