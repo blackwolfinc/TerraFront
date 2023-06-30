@@ -30,14 +30,17 @@ const Homepage = () => {
 
   return (
     <DefaultLayout>
-      <div id="hero" data-aos="fade-up">
+      <div id="hero" className="mb-40 lg:mb-0" data-aos="fade-up">
         <Hero />
       </div>
-      <div id="form-promo" className="mb-40" data-aos="fade-up">
+      <div id="form-promo" className="mb-40 hidden lg:block" data-aos="fade-up">
         <FormPromo />
       </div>
       <div className="mb-40" data-aos="fade-up">
         <Fasilitas list={showedProduct?.facilities} />
+      </div>
+      <div id="form-promo" className="mb-40 lg:hidden" data-aos="fade-up">
+        <FormPromo />
       </div>
       <div className="mb-40" data-aos="fade-up">
         <Lokasi />
