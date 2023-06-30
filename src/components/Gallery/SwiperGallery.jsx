@@ -24,7 +24,7 @@ const SwipperGallery = ({ value }) => {
       },
       loop: true,
       breakpoints: {
-        425: {
+        300: {
           slidesPerView: 3,
           spaceBetween: 10,
         },
