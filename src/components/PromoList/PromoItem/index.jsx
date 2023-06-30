@@ -24,8 +24,8 @@ const PromoItem = (props) => {
           <h3 className="mb-2 font-bevietnampro text-xl font-bold text-black lg:mb-6 lg:text-3xl">
             {title}
           </h3>
-          <p className="font-brygada text-sm text-black lg:text-lg">
-            {description}
+          <p className="overflow-hidden text-ellipsis font-brygada text-sm text-black lg:text-lg">
+            {description.slice(0, 250) + "..."}
           </p>
         </div>
       </div>
