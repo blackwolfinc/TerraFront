@@ -73,7 +73,7 @@ const Homepage = () => {
         <BlogList />
       </div>
       <div className="mb-40" data-aos="fade-up">
-        <FormPromo />
+        <FormPromo bgForm />
       </div>
       <div className="mx-80 my-80 h-40 bg-[url('assets/img/logo-transparent.png')] bg-contain bg-center bg-no-repeat opacity-50 max-lg:m-40 max-md:m-20"></div>
       <div id="partners">

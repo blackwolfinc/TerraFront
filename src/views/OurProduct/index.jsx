@@ -54,7 +54,7 @@ const OurProduct = () => {
           })}
       </div>
       <div id="form-promo" className="mb-40" data-aos="fade-up">
-        <FormPromo />
+        <FormPromo bgForm />
       </div>
       <div className="mb-40" data-aos="fade-up">
         <PromoList onlyFeatured />
