@@ -34,7 +34,7 @@ const Spesifikasi = ({ list }) => {
       <div className="mx-10 max-lg:mx-0">
         <div className="mb-20">
           <div className="relative flex w-full items-stretch max-lg:flex-col">
-            <div className="w-1/2 max-lg:relative max-lg:w-full">
+            <div className="w-1/2 max-lg:relative max-lg:h-full max-lg:w-full">
               <div className="relative z-10 flex aspect-square h-full w-full items-center max-lg:aspect-video">
                 <div className="relative aspect-square w-4/5 max-lg:aspect-video max-lg:w-full max-lg:px-10">
                   <div className="overflow-hidden rounded-lg">
@@ -50,9 +50,9 @@ const Spesifikasi = ({ list }) => {
               </div>
               <div className="absolute right-1/2 top-0 z-0 h-full w-1/4 bg-primary max-lg:bottom-0 max-lg:right-0 max-lg:top-auto max-lg:h-1/2 max-lg:w-full"></div>
             </div>
-            <div className="flex !h-auto flex-1 items-center bg-primary py-28 pr-20 max-lg:w-full max-lg:px-14 max-sm:py-14">
+            <div className="flex !h-auto flex-1 items-center bg-primary py-28 pr-20 max-lg:w-full max-lg:px-10 max-sm:py-10">
               <div className="text-white">
-                <h3 className="mb-10 font-dmserif text-6xl leading-snug max-sm:text-2xl">
+                <h3 className="mb-10 font-dmserif text-6xl leading-snug max-sm:mb-7 max-sm:text-2xl">
                   Spesifikasi Bangunan
                 </h3>
                 <div>
