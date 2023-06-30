@@ -29,10 +29,10 @@ const OurProduct = () => {
 
   return (
     <DefaultLayout>
-      <div className="mt-4 text-center font-dmserif text-3xl font-bold tracking-wider text-primary lg:mt-10 lg:text-6xl">
+      <div className="mb-40 mt-4 px-16 font-dmserif text-6xl font-bold tracking-wider text-primary lg:mb-40 lg:mt-10 lg:text-center">
         Our product
       </div>
-      <div className="my-8 flex flex-col gap-40 md:mt-56 md:gap-48 lg:my-32 lg:gap-40">
+      <div className="flex flex-col gap-40 lg:mb-40">
         {productData &&
           productData?.map((value, i) => {
             return (
@@ -44,7 +44,10 @@ const OurProduct = () => {
                   images={value?.productImageSlides}
                   description={value?.description}
                   isLoading={isLoadingData}
-                  section={i < 1 ? "ourproduct" : "ourproduct2"}
+                  showCategory={true}
+                  showButton1={i === 0}
+                  showButton2={i > 0}
+                  section={i > 0 ? "ourproduct2" : "ourproduct1"}
                 />
               </div>
             );
