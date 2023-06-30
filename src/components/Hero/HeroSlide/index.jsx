@@ -20,15 +20,16 @@ const HeroSlide = ({ images }) => {
       {images?.map((image, index) => {
         return (
           <SwiperSlide key={index}>
-            <img
-              src={image}
-              alt={`hero-${index}`}
-              className="min-h-full min-w-full object-cover"
-            />
+            <div className="lg:rounded-4xl flex h-[12rem] w-full items-center justify-center overflow-hidden rounded-xl bg-gray-100 md:h-[24rem] md:rounded-2xl lg:h-[44rem]">
+              <img
+                src={image}
+                alt={`hero-${index}`}
+                className="min-h-full min-w-full object-cover"
+              />
+            </div>
           </SwiperSlide>
         );
       })}
-      ;
     </Swiper>
   );
 };
