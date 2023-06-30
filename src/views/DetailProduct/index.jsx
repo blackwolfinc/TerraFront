@@ -47,7 +47,7 @@ const DetailProduct = () => {
   return (
     <DefaultLayout>
       <div className="mt-10">
-        <div className="mb-32" data-aos="fade-up">
+        <div className="mx-auto mb-32 max-w-screen-xl" data-aos="fade-up">
           {!productLoading ? (
             <h1 className="break-words px-8 font-dmserif text-6xl text-primary lg:text-center lg:text-7xl">
               {productData?.data.title}
@@ -58,7 +58,7 @@ const DetailProduct = () => {
         </div>
         <div data-aos="fade-up" className="mb-6 lg:mb-40">
           <div className="relative mx-auto w-full px-40 pb-16 max-lg:px-10">
-            <div className="relative z-10 flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl shadow-custom1">
+            <div className="relative z-10 mx-auto flex aspect-[4/3] w-full max-w-screen-xl items-center justify-center overflow-hidden rounded-xl shadow-custom1">
               {productLoading && (
                 <div className="h-full w-full animate-pulse bg-gray-200"></div>
               )}
@@ -76,7 +76,7 @@ const DetailProduct = () => {
           </div>
         </div>
         {!productLoading && (
-          <div>
+          <div className="mx-auto max-w-screen-xl">
             <div className="mx-3 mb-20 lg:mx-28" data-aos="fade-up">
               <h3 className="mb-7 text-center font-baijamjuree text-2xl font-bold text-black/80 lg:mb-14 lg:text-start lg:text-6xl">
                 High Quality Home
