@@ -16,8 +16,8 @@ const SwipperGallery = ({ value }) => {
   React.useEffect(() => {
     swiper.current = new Swiper(`.swiper_gallery${value?.id}`, {
       modules: [Navigation, Pagination, Scrollbar],
-      slidesPerView: "auto",
-      spaceBetween: 20,
+      slidesPerView: 3,
+      // spaceBetween: 20,
       navigation: {
         nextEl: navigationNextRef.current,
         prevEl: navigationPrevRef.current,
@@ -25,13 +25,16 @@ const SwipperGallery = ({ value }) => {
       loop: true,
       breakpoints: {
         425: {
-          slidesPerView: 1,
+          slidesPerView: 3,
+          spaceBetween:10
         },
         768: {
           slidesPerView: 3,
+          spaceBetween:10
         },
         1024: {
           slidesPerView: 3,
+          spaceBetween:20
         },
       },
     });
@@ -46,7 +49,7 @@ const SwipperGallery = ({ value }) => {
           <div className="w-full lg:w-6/12">
             {value?.galleryImages ? (
               <img
-                className="min-h-full min-w-full rounded-lg object-cover lg:w-[80%]"
+                className="min-h-full min-w-full rounded-lg object-cover lg:p-4"
                 src={`${process.env.REACT_APP_API_IMAGE}/${imageMain?.image_path}`}
                 alt={imageMain?.image_path}
               />
@@ -75,11 +78,11 @@ const SwipperGallery = ({ value }) => {
                   return (
                     <div
                       key={image.id}
-                      className="swiper-slide w-full rounded-lg bg-primary p-1"
+                      className="swiper-slide w-full rounded-lg"
                     >
-                      <div className="flex h-[120px] w-full items-center justify-center overflow-hidden sm:h-[200px]">
+                      <div className="flex h-full w-full items-center justify-center overflow-hidden ">
                         <img
-                          className="min-h-full min-w-full object-cover object-center"
+                          className="min-h-full min-w-full object-cover object-center rounded-lg"
                           src={`${process.env.REACT_APP_API_IMAGE}/${image.image_path}`}
                           alt={image.image_path}
                         />
@@ -92,7 +95,7 @@ const SwipperGallery = ({ value }) => {
           </div>
           <div className="w-4 text-slate-600 sm:w-[3%]">
             <button ref={navigationNextRef}>
-              <MdOutlineArrowForwardIos className="text-4xl" />
+              <MdOutlineArrowForwardIos className="text-xl md:text-2xl lg:text-3xl" />
             </button>
           </div>
         </div>

@@ -16,15 +16,15 @@ const Lokasi = () => {
         </div>
         <div className="w-full flex-col items-center justify-center md:flex lg:relative">
           <img
-            className="transform transition duration-500 lg:w-[90%] lg:rounded-lg lg:hover:scale-105"
+            className="transform w-full transition duration-500 lg:w-[90%] lg:rounded-lg lg:hover:scale-105"
             // width={"90%"}
             src={locationTerra}
             alt="location"
             onClick={() => redirectMap()}
           />
-          <div className="z-1 absolute -top-[8%] left-[10%] aspect-[1/3] rounded-lg bg-[#3B5858] opacity-75 shadow-custom1 md:w-0 lg:-top-[5%] lg:w-6 "></div>
-          <div className="z-1 absolute -top-[8%] left-[15%] aspect-[1/3] rounded-lg bg-[#3B5858] opacity-75 shadow-custom1 md:w-0 lg:-top-[5%] lg:w-6 "></div>
-          <div className="bottom-[10%] right-[2%] w-full space-y-5 bg-opacity-70 p-8 text-justify text-primary lg:absolute lg:w-96 lg:space-y-0 lg:bg-slate-300">
+          <div className="absolute top-[20%] left-[4%] md:top-[14%] md:left-[6%] lg:-top-[5%] lg:left-[10%] aspect-[1/3] rounded-lg bg-[#3B5858] opacity-90 shadow-custom1 w-4 md:w-5 lg:w-6"></div>
+          <div className="absolute top-[20%] left-[10%] md:top-[14%] md:left-[10%] lg:-top-[5%] lg:left-[14%] aspect-[1/3] rounded-lg bg-[#3B5858] opacity-90 shadow-custom1 w-4 md:w-5 lg:w-6"></div>
+          <div className="bottom-[10%] right-[2%] w-full space-y-5 bg-opacity-70 p-8 text-justify text-primary lg:absolute lg:w-96 lg:space-y-0 lg:bg-white lg:shadow-custom1 lg:rounded-lg">
             <div className="text-xl font-bold opacity-100">
               Terrakota Residence
             </div>

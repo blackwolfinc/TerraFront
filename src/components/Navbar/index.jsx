@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="fixed z-[999] w-full bg-white/60 backdrop-blur-lg">
       <div className="mx-auto max-w-screen-xl">
-        <div className="flex w-full items-center justify-between px-20 py-6 max-lg:px-2">
+        <div className="flex w-full items-center justify-between px-20 py-6 max-lg:px-8">
           <img
             src={TerraLogo}
             alt="Terra Logo"
