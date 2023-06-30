@@ -7,13 +7,11 @@ import "swiper/css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProductDataQuery } from "services/product/get-product";
 import FormPromo from "components/FormPromo";
-import useWindowDimensions from "utils/useWindowDimension";
 import PromoList from "components/PromoList";
 import Aos from "aos";
 
 const DetailProduct = () => {
   const { id } = useParams();
-  const { width } = useWindowDimensions();
   const navigate = useNavigate();
   const { data: productData, isLoading: productLoading } = useProductDataQuery({
     id: id,
@@ -24,22 +22,42 @@ const DetailProduct = () => {
     },
   });
 
+  const getImages = () => {
+    if (!productData) return [];
+
+    const images = productData?.data.productImageSlides;
+
+    if (images.length === 0) {
+      return [];
+    }
+
+    const minimum = 6;
+    const imagePaths = images.map((image) => image.image_path);
+    const dupImages = [];
+
+    while (dupImages.length < minimum) {
+      dupImages.push(...imagePaths);
+    }
+
+    return dupImages;
+  };
+
   Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
 
   return (
     <DefaultLayout>
       <div className="mt-10">
-        <div className="mb-10" data-aos="fade-up">
+        <div className="mb-32" data-aos="fade-up">
           {!productLoading ? (
-            <h1 className="text-center font-dmserif text-5xl text-primary">
+            <h1 className="break-words px-8 font-dmserif text-6xl text-primary lg:text-center lg:text-7xl">
               {productData?.data.title}
             </h1>
           ) : (
             <div className="mx-auto h-12 w-80 animate-pulse rounded-lg bg-gray-200"></div>
           )}
         </div>
-        <div data-aos="fade-up">
-          <div className="relative mx-auto w-full px-40 pb-10 max-lg:px-10">
+        <div data-aos="fade-up" className="mb-6 lg:mb-40">
+          <div className="relative mx-auto w-full px-40 pb-16 max-lg:px-10">
             <div className="relative z-10 flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl shadow-custom1">
               {productLoading && (
                 <div className="h-full w-full animate-pulse bg-gray-200"></div>
@@ -59,23 +77,23 @@ const DetailProduct = () => {
         </div>
         {!productLoading && (
           <div>
-            <div className="mx-28 py-28 max-lg:mx-10" data-aos="fade-up">
-              <h3 className="font-baijamjuree text-3xl font-bold text-black/80 max-lg:text-center">
+            <div className="mx-3 mb-20 lg:mx-28" data-aos="fade-up">
+              <h3 className="mb-7 text-center font-baijamjuree text-2xl font-bold text-black/80 lg:mb-14 lg:text-start lg:text-6xl">
                 High Quality Home
               </h3>
-              <div className="my-10">
+              <div className="mb-7 lg:mb-24">
                 <Swiper
                   spaceBetween={24}
-                  slidesPerView={width > 768 ? 3 : 1}
+                  slidesPerView={3}
                   loop={true}
                   className="product-slider"
                 >
-                  {productData?.data.productImageSlides.map((item, index) => {
+                  {getImages()?.map((item, index) => {
                     return (
                       <SwiperSlide key={index}>
-                        <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-lg border-4 border-primary bg-primary">
+                        <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-lg border-2 border-primary bg-primary lg:aspect-video lg:border-4">
                           <img
-                            src={`${process.env.REACT_APP_API_IMAGE}/${item.image_path}`}
+                            src={`${process.env.REACT_APP_API_IMAGE}/${item}`}
                             alt={`product-${index}`}
                             className="min-h-full min-w-full object-cover"
                           />
@@ -85,7 +103,7 @@ const DetailProduct = () => {
                   })}
                 </Swiper>
               </div>
-              <p className="mb-10 w-1/2 text-justify font-serif max-lg:w-full">
+              <p className="mb-10 w-1/2 text-justify font-serif text-lg max-lg:w-full">
                 {productData?.data.description}
               </p>
               <div
