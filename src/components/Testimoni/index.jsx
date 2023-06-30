@@ -1,14 +1,10 @@
-import React, { useEffect, useRef } from "react";
-// Import Swiper React components
-
-// Import Swiper styles
-import "swiper/css";
-import Swiper from "swiper";
-import { register } from "swiper/element";
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
+import "swiper/css";
 
 const DummyTestimoniData = [
   {
@@ -50,69 +46,66 @@ const DummyTestimoniData = [
 ];
 
 const Testimoni = () => {
-  const swiper = useRef(null);
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-  const id = Math.round(Math.random() * 100);
-
-  useEffect(() => {
-    swiper.current = new Swiper(`.swiper-testimoni-${id}`, {
-      slidesPerView: "auto",
-      spaceBetween: 20,
-      navigation: {
-        nextEl: navigationNextRef.current,
-        prevEl: navigationPrevRef.current,
-      },
-      loop: true,
-      breakpoints: {
-        768: {
-          slidesPerView: 1,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
-
-    register();
-
-    return () => {
-      swiper.current.destroy();
-    };
-  });
+  const swiperRef = useRef(null);
 
   return (
     <div className="mx-auto max-w-screen-xl">
-      <div className="mx-10 font-arimo">
+      <div className="mx-4 font-arimo lg:mx-10">
         <h3 className="mb-24 text-center font-arimo text-6xl font-bold text-primary max-md:mb-10 max-md:text-4xl max-sm:text-2xl">
           Apa Kata Mereka ?
         </h3>
-        <div className="relative px-20 max-md:px-0">
-          <div className={`swiper-testimoni-${id} w-full overflow-hidden`}>
-            <div className={`swiper-wrapper`}>
+        <div className="relative">
+          <div className="flex items-center">
+            <div className="absolute left-2 top-0 z-10 mr-4 flex h-full text-white md:left-0 md:text-primary lg:relative lg:top-auto">
+              <button
+                onClick={() => {
+                  swiperRef.current.slidePrev();
+                }}
+              >
+                <MdOutlineArrowBackIos size={24} />
+              </button>
+            </div>
+            <Swiper
+              loop={true}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 24,
+                },
+              }}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+            >
               {DummyTestimoniData.map((testimoni, i) => (
-                <div key={`testi-${i}`} className="swiper-slide !h-auto">
+                <SwiperSlide
+                  key={`testi-${i}`}
+                  className="swiper-slide !h-auto"
+                >
                   <div className="flex min-h-full flex-col gap-4 rounded-lg bg-primary p-8 text-white shadow-custom1">
-                    <p className="flex-1 text-lg max-md:text-center max-md:text-3xl max-md:leading-relaxed max-sm:text-lg">
+                    <p className="flex-1 text-lg max-md:px-4 max-md:text-center max-md:text-3xl max-md:leading-relaxed max-sm:text-lg">
                       {testimoni.message}
                     </p>
                     <hr />
-                    <span className="w-full text-center font-bold">
+                    <span className="w-full text-center font-bold max-md:px-4">
                       {testimoni.name}
                     </span>
                   </div>
-                </div>
+                </SwiperSlide>
               ))}
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-2 top-0 z-10 flex items-center text-white md:left-0 md:text-primary">
-            <div ref={navigationPrevRef}>
-              <MdOutlineArrowBackIos size={24} />
-            </div>
-          </div>
-          <div className="absolute bottom-0 right-2 top-0 z-10 flex items-center text-white md:right-0 md:text-primary">
-            <div ref={navigationNextRef}>
-              <MdOutlineArrowForwardIos size={24} />
+            </Swiper>
+            <div className="absolute right-2 top-0 z-10 ml-4 flex h-full items-center text-white md:right-0 md:text-primary lg:relative">
+              <button
+                onClick={() => {
+                  swiperRef.current.slideNext();
+                }}
+              >
+                <MdOutlineArrowForwardIos size={24} />
+              </button>
             </div>
           </div>
         </div>
