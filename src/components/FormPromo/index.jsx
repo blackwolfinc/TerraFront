@@ -46,16 +46,19 @@ const FormPromo = ({ bgForm }) => {
             </p>
           </div>
           <div
-            className={`${
+            className={`flex w-full items-center py-4 md:w-5/12 md:px-8 md:py-8 lg:w-1/3 lg:self-stretch lg:px-16 lg:py-16 ${
               bgForm ? "md:bg-[#1C3737]" : ""
-            } flex items-center py-4 md:w-5/12 md:px-8 md:py-8 lg:w-1/3 lg:self-stretch lg:px-16 lg:py-16`}
+            }`}
           >
             {isSubmit ? (
               <div className="font-baijamjuree text-lg font-light text-white lg:text-center lg:text-xl">
                 Terima Kasih telah mengisi form promo ini.
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="font-bevietnampro">
+              <form
+                onSubmit={handleSubmit}
+                className="w-full font-bevietnampro"
+              >
                 <div className="mb-4">
                   <input
                     className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
