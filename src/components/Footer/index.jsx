@@ -10,8 +10,8 @@ const Footer = (props) => {
       {...props}
     >
       <div className="mx-auto flex max-w-7xl max-lg:flex-col">
-        <div className="w-1/2 bg-dark-primary px-10 py-20 font-baijamjuree text-white max-lg:order-2 max-lg:w-full">
-          <img src={TerraLogoWhite} alt="Terra Logo" className="mb-6 w-60" />
+        <div className="w-1/2 bg-dark-primary px-8 py-20 font-baijamjuree text-white max-lg:order-2 max-lg:w-full">
+          <img src={TerraLogoWhite} alt="Terra Logo" className="mb-6 w-60 -ml-4" />
           <div className="mb-9">
             <span>
               At TERRAKOTA RESIDANCE
@@ -46,8 +46,8 @@ const Footer = (props) => {
               </div>
               <div className="absolute bottom-0 left-0 z-0 h-1/3 w-full bg-primary lg:hidden"></div>
             </div>
-            <div className="font-baijamjuree text-white max-lg:w-full max-lg:bg-primary max-lg:px-10 max-lg:pt-4">
-              <h1 className="mb-10 text-2xl font-bold">Contact Us</h1>
+            <div className="font-baijamjuree text-white max-lg:w-full max-lg:bg-primary max-lg:px-10 max-lg:pt-4 ">
+              <h1 className="mb-10 text-2xl">Contact Us</h1>
               <div className="mb-10">
                 <div className="mb-4 flex items-center gap-2">
                   <HiOutlineMail size={24} />
@@ -55,7 +55,7 @@ const Footer = (props) => {
                 </div>
                 <div className="flex items-center gap-2">
                   <HiPhone size={24} />
-                  <span>0811-320-45678</span>
+                  <span className="tracking-[.25em]">0811-320-45678</span>
                 </div>
               </div>
               <p className="max-lg:hidden">
