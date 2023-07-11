@@ -15,6 +15,7 @@ import WhyChooseUs from "components/WhyChooseUs";
 import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
 import { useProductDataQuery } from "services/product/get-product";
+import HomepageBlogs from "./components/HomepageBlogs";
 
 Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
 
@@ -73,7 +74,7 @@ const Homepage = () => {
         <IntroVideo />
       </div>
       <div className="mb-40" data-aos="fade-up">
-        <BlogList />
+        <HomepageBlogs />
       </div>
       <div className="mb-40" data-aos="fade-up">
         <FormPromo bgForm />

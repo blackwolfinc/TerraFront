@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "aos/dist/aos.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {
