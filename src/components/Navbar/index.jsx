@@ -75,7 +75,12 @@ const Navbar = () => {
                 </span>
               </NavItemAnimation>
               <NavItemAnimation>
-                <a href="/#gallery">Gallery</a>
+                <span
+                  className={"cursor-pointer"}
+                  onClick={() => navigate("/gallery")}
+                >
+                  Gallery
+                </span>
               </NavItemAnimation>
               <NavItemAnimation>
                 <a href="/#partners">Our Partners</a>

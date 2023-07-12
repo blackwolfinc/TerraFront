@@ -9,7 +9,7 @@ const SwipperGallery = ({ value }) => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   const imageMain =
-    value.galleryImages &&
+    value?.galleryImages &&
     value?.galleryImages[value?.galleryImages?.length - 1];
   const idName = `swiper w-full swiper_gallery${value?.id}`;
 
