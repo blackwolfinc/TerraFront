@@ -1,5 +1,4 @@
 import Aos from "aos";
-import BlogList from "components/BlogList";
 import Fasilitas from "components/Fasilitas";
 import FormPromo from "components/FormPromo";
 import Gallery from "components/Gallery";

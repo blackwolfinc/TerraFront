@@ -4,6 +4,7 @@ import BlogsCategory from "data/blogs-category.json";
 import DateRangePicker from "components/DateRangePicker";
 import { useReducer } from "react";
 import { useEffect } from "react";
+import moment from "moment";
 
 const SearchBar = ({ onChange }) => {
   const [value, setValue] = useReducer(
@@ -11,7 +12,7 @@ const SearchBar = ({ onChange }) => {
     {
       startDate: null,
       endDate: null,
-      category: "",
+      searchCategory: "",
       search: "",
     }
   );
@@ -23,9 +24,18 @@ const SearchBar = ({ onChange }) => {
   }, [value]);
 
   const handleDateRangeChange = (start, end) => {
+    if (start && end) {
+      setValue({
+        startDate: moment(start).format("YYYY-MM-DD"),
+        endDate: moment(end).format("YYYY-MM-DD"),
+      });
+
+      return;
+    }
+
     setValue({
-      startDate: start,
-      endDate: end,
+      startDate: null,
+      endDate: null,
     });
   };
 
@@ -38,17 +48,17 @@ const SearchBar = ({ onChange }) => {
         <div className="relative w-full lg:w-auto">
           <select
             className="h-full w-full appearance-none rounded-lg px-4 py-2 font-baijamjuree focus:outline-none lg:w-60"
-            onChange={(value) => {
+            onChange={(e) => {
               setValue({
-                category: value.target.value,
+                searchCategory: e.target.value,
               });
             }}
           >
             <option value={""}>Select Category</option>
             {BlogsCategory?.map((category, i) => {
               return (
-                <option key={`${category.key}-${i}`} value={category.key}>
-                  {category.value}
+                <option key={`${category.key}-${i}`} value={category}>
+                  {category}
                 </option>
               );
             })}
