@@ -4,6 +4,7 @@ import DetailBlogs from "views/DetailBlogs";
 import DetailProduct from "views/DetailProduct";
 import OurProduct from "views/OurProduct";
 import Homepage from "views/Homepage";
+import GalleryPages from "views/GalleryPage";
 
 const Routers = () => {
   return (
@@ -15,6 +16,9 @@ const Routers = () => {
       </Route>
       <Route path="blogs">
         <Route path=":id" element={<DetailBlogs />} />
+      </Route>
+      <Route path="gallery">
+        <Route path="" element={<GalleryPages />} />
       </Route>
       <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>

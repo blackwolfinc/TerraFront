@@ -15,6 +15,7 @@ import WhyChooseUs from "components/WhyChooseUs";
 import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
 import { useProductDataQuery } from "services/product/get-product";
+import { useGalleryDataQuery } from 'services/gallery/get-gallery'
 
 Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
 
@@ -26,8 +27,15 @@ const Homepage = () => {
     },
   });
 
+  const { data: dataGallery } = useGalleryDataQuery({
+    params: "",
+    settings: "",
+  });
+
   const showedProduct = productData?.data?.datas[0];
 
+  const galleryData = dataGallery?.data?.datas[0];
+  
   return (
     <DefaultLayout>
       <div id="hero" className="mb-40 mt-20 h-fit lg:mt-20" data-aos="fade-up">
@@ -67,7 +75,7 @@ const Homepage = () => {
         <PromoList />
       </div>
       <div id="gallery" className="mb-10" data-aos="fade-up">
-        <Gallery />
+        <Gallery data={galleryData} />
       </div>
       <div className="mb-40" data-aos="fade-up">
         <IntroVideo />
