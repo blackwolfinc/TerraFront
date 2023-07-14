@@ -3,13 +3,20 @@ import React, { forwardRef, useEffect } from "react";
 import DatePicker from "react-datepicker";
 
 const DateRangePicker = ({
-  initalStart = null,
+  initialStart = null,
   initialEnd = null,
   onChange,
   ...rest
 }) => {
-  const [startDate, setStartDate] = React.useState(initalStart);
+  const [startDate, setStartDate] = React.useState(initialStart);
   const [endDate, setEndDate] = React.useState(initialEnd);
+
+  useEffect(() => {
+    setStartDate(initialStart);
+    setEndDate(initialEnd);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialStart, initialEnd]);
 
   useEffect(() => {
     if (onChange) {

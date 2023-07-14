@@ -8,3 +8,19 @@
 html {
     scroll-behavior: smooth;
 }
+
+.instagram-media {
+    display: none;
+}
+
+.instagram-media .SocialProof {
+    display: none;
+}
+
+.instagram-media .Caption {
+    display: none;
+}
+
+.instagram-media .Footer {
+    display: none;
+}

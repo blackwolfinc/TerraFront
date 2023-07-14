@@ -18,24 +18,26 @@ const SearchBar = ({ onChange }) => {
   );
 
   useEffect(() => {
-    if (onChange) onChange(value);
+    if (onChange) {
+      onChange({
+        startDate: value.startDate
+          ? moment(value.startDate).format("YYYY-MM-DD")
+          : null,
+        endDate: value.endDate
+          ? moment(value.endDate).format("YYYY-MM-DD")
+          : null,
+        searchCategory: value.searchCategory,
+        search: value.search,
+      });
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleDateRangeChange = (start, end) => {
-    if (start && end) {
-      setValue({
-        startDate: moment(start).format("YYYY-MM-DD"),
-        endDate: moment(end).format("YYYY-MM-DD"),
-      });
-
-      return;
-    }
-
     setValue({
-      startDate: null,
-      endDate: null,
+      startDate: start,
+      endDate: end,
     });
   };
 
@@ -43,11 +45,16 @@ const SearchBar = ({ onChange }) => {
     <div className="w-full bg-primary p-4 lg:p-8">
       <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center gap-4 lg:flex-row lg:px-8">
         <div className="w-full rounded-lg bg-white px-4 py-2 font-baijamjuree lg:w-auto">
-          <DateRangePicker onChange={handleDateRangeChange} />
+          <DateRangePicker
+            initialStart={value.startDate}
+            initialEnd={value.endDate}
+            onChange={handleDateRangeChange}
+          />
         </div>
         <div className="relative w-full lg:w-auto">
           <select
             className="h-full w-full appearance-none rounded-lg px-4 py-2 font-baijamjuree focus:outline-none lg:w-60"
+            value={value.searchCategory}
             onChange={(e) => {
               setValue({
                 searchCategory: e.target.value,
@@ -89,6 +96,19 @@ const SearchBar = ({ onChange }) => {
             <FaSearch />
           </div>
         </div>
+        <button
+          className="w-full rounded-lg bg-accent px-4 py-2 font-baijamjuree text-white lg:w-auto"
+          onClick={() => {
+            setValue({
+              startDate: null,
+              endDate: null,
+              searchCategory: "",
+              search: "",
+            });
+          }}
+        >
+          RESET
+        </button>
       </div>
     </div>
   );
