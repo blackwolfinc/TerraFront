@@ -5,6 +5,7 @@ import DetailProduct from "views/DetailProduct";
 import OurProduct from "views/OurProduct";
 import Homepage from "views/Homepage";
 import GalleryPages from "views/GalleryPage";
+import Blogs from "views/Blogs";
 
 const Routers = () => {
   return (
@@ -15,6 +16,7 @@ const Routers = () => {
         <Route path=":id" element={<DetailProduct />} />
       </Route>
       <Route path="blogs">
+        <Route path="" element={<Blogs />} />
         <Route path=":id" element={<DetailBlogs />} />
       </Route>
       <Route path="gallery">

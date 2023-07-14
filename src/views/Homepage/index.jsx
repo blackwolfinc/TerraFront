@@ -1,5 +1,4 @@
 import Aos from "aos";
-import BlogList from "components/BlogList";
 import Fasilitas from "components/Fasilitas";
 import FormPromo from "components/FormPromo";
 import Gallery from "components/Gallery";
@@ -16,6 +15,7 @@ import DefaultLayout from "layout/DefaultLayout";
 import React from "react";
 import { useProductDataQuery } from "services/product/get-product";
 import { useGalleryDataQuery } from 'services/gallery/get-gallery'
+import HomepageBlogs from "./components/HomepageBlogs";
 
 Aos.init({ duration: 1000, anchorPlacement: "top-bottom", once: true });
 
@@ -81,7 +81,7 @@ const Homepage = () => {
         <IntroVideo />
       </div>
       <div className="mb-40" data-aos="fade-up">
-        <BlogList />
+        <HomepageBlogs />
       </div>
       <div className="mb-40" data-aos="fade-up">
         <FormPromo bgForm />
