@@ -86,7 +86,20 @@ const Navbar = () => {
                 <a href="/#partners">Our Partners</a>
               </NavItemAnimation>
               <NavItemAnimation>
-                <a href="/#about">About Us</a>
+                <span
+                  className={"cursor-pointer"}
+                  onClick={() => navigate("/blogs")}
+                >
+                  Blogs
+                </span>
+              </NavItemAnimation>
+              <NavItemAnimation>
+                <span
+                  className={"cursor-pointer"}
+                  onClick={() => navigate("/about-us")}
+                >
+                  About Us
+                </span>
               </NavItemAnimation>
               <HiOutlineMagnifyingGlass
                 size={24}
